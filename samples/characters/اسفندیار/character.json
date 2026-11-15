@@ -1,0 +1,60 @@
+{
+  "name": "اسفندیار",
+  "name_en": "Esfandiar",
+  "role": "شاهزادهٔ کیانی، رویین‌تن",
+  "description": "Kayanian prince and invincible holy warrior, son of Goshtasp; his body is invulnerable like polished bronze, only his eyes are mortal",
+  "appearance": {
+    "age": "late twenties",
+    "build": "tall, powerful, disciplined warrior",
+    "face": "ancient Persian princely face, high cheekbones, prominent straight nose, deep-set almond eyes, serene confident, spiritual aura, inspired by Achaemenid reliefs, not modern",
+    "hair": "long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style",
+    "beard": "long, thick, curled black beard reaching the chest, full moustache, Achaemenid style",
+    "eyes": "dark, deep-set, calm and kind",
+    "skin": "warm bronze Persian skin",
+    "clothing": "magnificent Kayanian scale armour of gold and blued steel over a white tunic, royal blue cloak",
+    "armor": "crowned steel helmet with gold Kayanian emblem, segmented pauldrons",
+    "accessories": "long spear, straight sword, horsehair banner",
+    "signature": "invulnerable bronzed skin, long curled beard, Kayanian armour"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "cb4a96b3ce0d479da5a51629db06fdb2",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Esfandiar, Kayanian prince and invincible holy warrior, son of Goshtasp; his body is invulnerable like polished bronze, only his eyes are mortal, age: late twenties, build: tall, powerful, disciplined warrior, face: ancient Persian princely face, high cheekbones, prominent straight nose, deep-set almond eyes, serene confident, spiritual aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, calm and kind, skin: warm bronze Persian skin, clothing: magnificent Kayanian scale armour of gold and blued steel over a white tunic, royal blue cloak, armor: crowned steel helmet with gold Kayanian emblem, segmented pauldrons, accessories: long spear, straight sword, horsehair banner, signature: invulnerable bronzed skin, long curled beard, Kayanian armour, photorealistic historical reconstruction of an ancient Persian prince-warrior, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 988142094,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763583.7243044,
+      "asset_id": "f202ba0c5d75471580ca5df6fa24bd35"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Esfandiar, Kayanian prince and invincible holy warrior, son of Goshtasp; his body is invulnerable like polished bronze, only his eyes are mortal, age: late twenties, build: tall, powerful, disciplined warrior, face: ancient Persian princely face, high cheekbones, prominent straight nose, deep-set almond eyes, serene confident, spiritual aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, calm and kind, skin: warm bronze Persian skin, clothing: magnificent Kayanian scale armour of gold and blued steel over a white tunic, royal blue cloak, armor: crowned steel helmet with gold Kayanian emblem, segmented pauldrons, accessories: long spear, straight sword, horsehair banner, signature: invulnerable bronzed skin, long curled beard, Kayanian armour, photorealistic historical reconstruction of an ancient Persian prince-warrior, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 988142093,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763583.7223876,
+      "asset_id": "a91bd7b4fc32439e9d8aea229c8bb22f"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Esfandiar, Kayanian prince and invincible holy warrior, son of Goshtasp; his body is invulnerable like polished bronze, only his eyes are mortal, age: late twenties, build: tall, powerful, disciplined warrior, face: ancient Persian princely face, high cheekbones, prominent straight nose, deep-set almond eyes, serene confident, spiritual aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, calm and kind, skin: warm bronze Persian skin, clothing: magnificent Kayanian scale armour of gold and blued steel over a white tunic, royal blue cloak, armor: crowned steel helmet with gold Kayanian emblem, segmented pauldrons, accessories: long spear, straight sword, horsehair banner, signature: invulnerable bronzed skin, long curled beard, Kayanian armour, photorealistic historical reconstruction of an ancient Persian prince-warrior, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 988142092,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763583.7203445,
+      "asset_id": "cb4a96b3ce0d479da5a51629db06fdb2"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Esfandiar, Kayanian prince and invincible holy warrior, son of Goshtasp; his body is invulnerable like polished bronze, only his eyes are mortal, age: late twenties, build: tall, powerful, disciplined warrior, face: ancient Persian princely face, high cheekbones, prominent straight nose, deep-set almond eyes, serene confident, spiritual aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, calm and kind, skin: warm bronze Persian skin, clothing: magnificent Kayanian scale armour of gold and blued steel over a white tunic, royal blue cloak, armor: crowned steel helmet with gold Kayanian emblem, segmented pauldrons, accessories: long spear, straight sword, horsehair banner, signature: invulnerable bronzed skin, long curled beard, Kayanian armour, photorealistic historical reconstruction of an ancient Persian prince-warrior, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 988142091,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763583.7181134,
+      "asset_id": "4e357422d64d43c8a4fd5551bbe1f515"
+    }
+  ]
+}

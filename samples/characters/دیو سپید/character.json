@@ -1,0 +1,60 @@
+{
+  "name": "دیو سپید",
+  "name_en": "Div-e Sepid, the White Demon",
+  "role": "سردار دیوان مازندران",
+  "description": "giant chalk-white demon lord of Mazandaran who imprisoned Kay Kavus and his army in a cave, slain by Rostam",
+  "appearance": {
+    "age": "ancient",
+    "build": "colossal, four metres tall, monstrous muscular body",
+    "face": "terrifying demonic face, huge tusks, flat nose, savage expression",
+    "hair": "wild white mane",
+    "beard": "ragged white beard",
+    "eyes": "glowing red eyes",
+    "skin": "chalk-white leathery hide",
+    "clothing": "scraps of hide and crude iron plates",
+    "armor": "none, natural hide",
+    "accessories": "massive stone club, chains",
+    "signature": "chalk-white giant with curved horns"
+  },
+  "negative": "human, handsome, small, cute",
+  "canonical_asset_id": "a267f270ec534062b71078e7b98c5dda",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Div-e Sepid, the White Demon, giant chalk-white demon lord of Mazandaran who imprisoned Kay Kavus and his army in a cave, slain by Rostam, age: ancient, build: colossal, four metres tall, monstrous muscular body, face: terrifying demonic face, huge tusks, flat nose, savage expression, hair: wild white mane, beard: ragged white beard, eyes: glowing red eyes, skin: chalk-white leathery hide, clothing: scraps of hide and crude iron plates, armor: none, natural hide, accessories: massive stone club, chains, signature: chalk-white giant with curved horns, full body of the giant white demon, towering, standing in a dark cave, massive scale, realistic prosthetic creature, cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 57647966,
+      "parent": null,
+      "created_at": 1794759042.2451692,
+      "asset_id": "66626b9158cb4864bf4bf26e8676d600"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Div-e Sepid, the White Demon, giant chalk-white demon lord of Mazandaran who imprisoned Kay Kavus and his army in a cave, slain by Rostam, age: ancient, build: colossal, four metres tall, monstrous muscular body, face: terrifying demonic face, huge tusks, flat nose, savage expression, hair: wild white mane, beard: ragged white beard, eyes: glowing red eyes, skin: chalk-white leathery hide, clothing: scraps of hide and crude iron plates, armor: none, natural hide, accessories: massive stone club, chains, signature: chalk-white giant with curved horns, full body of the giant white demon, towering, standing in a dark cave, massive scale, realistic prosthetic creature, cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 57647965,
+      "parent": null,
+      "created_at": 1794759042.2425911,
+      "asset_id": "9559b0c705ab4b31a773c1191a905d51"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Div-e Sepid, the White Demon, giant chalk-white demon lord of Mazandaran who imprisoned Kay Kavus and his army in a cave, slain by Rostam, age: ancient, build: colossal, four metres tall, monstrous muscular body, face: terrifying demonic face, huge tusks, flat nose, savage expression, hair: wild white mane, beard: ragged white beard, eyes: glowing red eyes, skin: chalk-white leathery hide, clothing: scraps of hide and crude iron plates, armor: none, natural hide, accessories: massive stone club, chains, signature: chalk-white giant with curved horns, full body of the giant white demon, towering, standing in a dark cave, massive scale, realistic prosthetic creature, cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 57647964,
+      "parent": null,
+      "created_at": 1794759042.240441,
+      "asset_id": "a267f270ec534062b71078e7b98c5dda"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Div-e Sepid, the White Demon, giant chalk-white demon lord of Mazandaran who imprisoned Kay Kavus and his army in a cave, slain by Rostam, age: ancient, build: colossal, four metres tall, monstrous muscular body, face: terrifying demonic face, huge tusks, flat nose, savage expression, hair: wild white mane, beard: ragged white beard, eyes: glowing red eyes, skin: chalk-white leathery hide, clothing: scraps of hide and crude iron plates, armor: none, natural hide, accessories: massive stone club, chains, signature: chalk-white giant with curved horns, full body of the giant white demon, towering, standing in a dark cave, massive scale, realistic prosthetic creature, cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 57647963,
+      "parent": null,
+      "created_at": 1794759042.238021,
+      "asset_id": "e2370a463a554454afb33a848c6a6019"
+    }
+  ]
+}

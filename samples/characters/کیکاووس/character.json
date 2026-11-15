@@ -1,0 +1,59 @@
+{
+  "name": "کیکاووس",
+  "name_en": "Kay Kavus",
+  "role": "شاه کیانی",
+  "description": "proud and impulsive Kayanian king of Iran, father of Siyavash and grandfather of Kay Khosrow",
+  "appearance": {
+    "age": "fifties",
+    "build": "tall, regal, broad-shouldered",
+    "face": "ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set dark eyes, proud and commanding, inspired by Achaemenid reliefs, not modern",
+    "hair": "long, thick, black hair streaked with grey, Achaemenid Persian style",
+    "beard": "long, thick, black beard streaked with grey, curled, reaching the chest, Achaemenid style",
+    "eyes": "dark, deep-set, commanding",
+    "skin": "warm bronze Persian skin",
+    "clothing": "deep blue and gold ancient Persian royal robes, jeweled belt, fur-trimmed mantle",
+    "accessories": "Kayanian crown of gold and turquoise, scepter",
+    "signature": "Kayanian crown, long grey-streaked beard"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "499df31873aa49c9b07cdad418c9ecf0",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kay Kavus, proud and impulsive Kayanian king of Iran, father of Siyavash and grandfather of Kay Khosrow, age: fifties, build: tall, regal, broad-shouldered, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set dark eyes, proud and commanding, inspired by Achaemenid reliefs, not modern, hair: long, thick, black hair streaked with grey, Achaemenid Persian style, beard: long, thick, black beard streaked with grey, curled, reaching the chest, Achaemenid style, eyes: dark, deep-set, commanding, skin: warm bronze Persian skin, clothing: deep blue and gold ancient Persian royal robes, jeweled belt, fur-trimmed mantle, accessories: Kayanian crown of gold and turquoise, scepter, signature: Kayanian crown, long grey-streaked beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard streaked with grey, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 2021954159,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763728.2567804,
+      "asset_id": "3c75a553ce0f4c63a9cdb5921e236325"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kay Kavus, proud and impulsive Kayanian king of Iran, father of Siyavash and grandfather of Kay Khosrow, age: fifties, build: tall, regal, broad-shouldered, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set dark eyes, proud and commanding, inspired by Achaemenid reliefs, not modern, hair: long, thick, black hair streaked with grey, Achaemenid Persian style, beard: long, thick, black beard streaked with grey, curled, reaching the chest, Achaemenid style, eyes: dark, deep-set, commanding, skin: warm bronze Persian skin, clothing: deep blue and gold ancient Persian royal robes, jeweled belt, fur-trimmed mantle, accessories: Kayanian crown of gold and turquoise, scepter, signature: Kayanian crown, long grey-streaked beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard streaked with grey, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 2021954158,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763728.2548223,
+      "asset_id": "499df31873aa49c9b07cdad418c9ecf0"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kay Kavus, proud and impulsive Kayanian king of Iran, father of Siyavash and grandfather of Kay Khosrow, age: fifties, build: tall, regal, broad-shouldered, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set dark eyes, proud and commanding, inspired by Achaemenid reliefs, not modern, hair: long, thick, black hair streaked with grey, Achaemenid Persian style, beard: long, thick, black beard streaked with grey, curled, reaching the chest, Achaemenid style, eyes: dark, deep-set, commanding, skin: warm bronze Persian skin, clothing: deep blue and gold ancient Persian royal robes, jeweled belt, fur-trimmed mantle, accessories: Kayanian crown of gold and turquoise, scepter, signature: Kayanian crown, long grey-streaked beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard streaked with grey, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 2021954157,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763728.2528768,
+      "asset_id": "7693f4f0597145bdbb58a91ed04db7c4"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kay Kavus, proud and impulsive Kayanian king of Iran, father of Siyavash and grandfather of Kay Khosrow, age: fifties, build: tall, regal, broad-shouldered, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set dark eyes, proud and commanding, inspired by Achaemenid reliefs, not modern, hair: long, thick, black hair streaked with grey, Achaemenid Persian style, beard: long, thick, black beard streaked with grey, curled, reaching the chest, Achaemenid style, eyes: dark, deep-set, commanding, skin: warm bronze Persian skin, clothing: deep blue and gold ancient Persian royal robes, jeweled belt, fur-trimmed mantle, accessories: Kayanian crown of gold and turquoise, scepter, signature: Kayanian crown, long grey-streaked beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard streaked with grey, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 2021954156,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763728.250587,
+      "asset_id": "0a35df133eb84d32bbccfd8f48cd42e7"
+    }
+  ]
+}

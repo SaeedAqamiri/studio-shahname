@@ -1,0 +1,59 @@
+{
+  "name": "زال",
+  "name_en": "Zal",
+  "role": "پهلوان سیستان، پدر رستم",
+  "description": "legendary paladin of Sistan, father of Rostam, raised by the Simurgh; born with snow-white hair and beard",
+  "appearance": {
+    "age": "sixty years old",
+    "build": "tall, lean but still powerful",
+    "face": "ancient Persian noble face, high cheekbones, prominent straight nose, deep-set pale eyes, wise and serene, inspired by Achaemenid reliefs, not modern",
+    "hair": "long, thick, voluminous snow-white hair, shoulder-length, Achaemenid Persian style",
+    "beard": "long, thick, curled snow-white beard reaching the chest, full white moustache, Achaemenid style",
+    "eyes": "pale grey, deep-set, wise and compassionate",
+    "skin": "pale ivory Persian skin",
+    "clothing": "deep blue and gold ancient Persian robe with embroidered borders",
+    "accessories": "Simurgh feather talisman, ornate bow, ring",
+    "signature": "snow-white hair and long curled beard, Simurgh feather"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "40b908b3b0b54ffcb5ccc6b214da5e9b",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Zal, legendary paladin of Sistan, father of Rostam, raised by the Simurgh; born with snow-white hair and beard, age: sixty years old, build: tall, lean but still powerful, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set pale eyes, wise and serene, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous snow-white hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled snow-white beard reaching the chest, full white moustache, Achaemenid style, eyes: pale grey, deep-set, wise and compassionate, skin: pale ivory Persian skin, clothing: deep blue and gold ancient Persian robe with embroidered borders, accessories: Simurgh feather talisman, ornate bow, ring, signature: snow-white hair and long curled beard, Simurgh feather, photorealistic historical reconstruction of an ancient Persian sage-hero, long thick white curled beard, long voluminous white hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 845166309,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763442.0154893,
+      "asset_id": "65de487593554b588f2602dd0e92ec52"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Zal, legendary paladin of Sistan, father of Rostam, raised by the Simurgh; born with snow-white hair and beard, age: sixty years old, build: tall, lean but still powerful, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set pale eyes, wise and serene, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous snow-white hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled snow-white beard reaching the chest, full white moustache, Achaemenid style, eyes: pale grey, deep-set, wise and compassionate, skin: pale ivory Persian skin, clothing: deep blue and gold ancient Persian robe with embroidered borders, accessories: Simurgh feather talisman, ornate bow, ring, signature: snow-white hair and long curled beard, Simurgh feather, photorealistic historical reconstruction of an ancient Persian sage-hero, long thick white curled beard, long voluminous white hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 845166308,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763442.0135233,
+      "asset_id": "7201bfa9d9fa46b79671c1f33f054146"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Zal, legendary paladin of Sistan, father of Rostam, raised by the Simurgh; born with snow-white hair and beard, age: sixty years old, build: tall, lean but still powerful, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set pale eyes, wise and serene, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous snow-white hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled snow-white beard reaching the chest, full white moustache, Achaemenid style, eyes: pale grey, deep-set, wise and compassionate, skin: pale ivory Persian skin, clothing: deep blue and gold ancient Persian robe with embroidered borders, accessories: Simurgh feather talisman, ornate bow, ring, signature: snow-white hair and long curled beard, Simurgh feather, photorealistic historical reconstruction of an ancient Persian sage-hero, long thick white curled beard, long voluminous white hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 845166307,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763442.011341,
+      "asset_id": "40b908b3b0b54ffcb5ccc6b214da5e9b"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Zal, legendary paladin of Sistan, father of Rostam, raised by the Simurgh; born with snow-white hair and beard, age: sixty years old, build: tall, lean but still powerful, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set pale eyes, wise and serene, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous snow-white hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled snow-white beard reaching the chest, full white moustache, Achaemenid style, eyes: pale grey, deep-set, wise and compassionate, skin: pale ivory Persian skin, clothing: deep blue and gold ancient Persian robe with embroidered borders, accessories: Simurgh feather talisman, ornate bow, ring, signature: snow-white hair and long curled beard, Simurgh feather, photorealistic historical reconstruction of an ancient Persian sage-hero, long thick white curled beard, long voluminous white hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 845166306,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763442.0080054,
+      "asset_id": "7768beed56744d47934f399f66cad918"
+    }
+  ]
+}

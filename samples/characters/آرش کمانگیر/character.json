@@ -1,0 +1,59 @@
+{
+  "name": "آرش کمانگیر",
+  "name_en": "Arash the Archer",
+  "role": "کمانگیر اسطوره‌ای ایران",
+  "description": "legendary Iranian archer who shot the frontier arrow from the summit of Mount Damavand at dawn, giving his life for the border of Iran",
+  "appearance": {
+    "age": "early thirties",
+    "build": "lean, sinewy, athletic archer",
+    "face": "ancient Persian noble face, high cheekbones, prominent straight nose, deep-set almond eyes, serene determination, spiritual resolve, inspired by Achaemenid reliefs, not modern",
+    "hair": "long, thick, windswept black hair, Achaemenid Persian style",
+    "beard": "long, thick, curled black beard reaching the chest, full moustache, Achaemenid style",
+    "eyes": "dark, deep-set, calm and focused",
+    "skin": "sun-bronzed Persian skin",
+    "clothing": "minimal ancient Persian archer's garb of leather and wool, bare muscular arms, wrapped forearms",
+    "accessories": "huge composite bow, eagle-feather arrow, quiver, mountain summit",
+    "signature": "great bow, long curled beard, eagle-feather arrow"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "d272abbb3dc141f09cfccf6786c8b409",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Arash the Archer, legendary Iranian archer who shot the frontier arrow from the summit of Mount Damavand at dawn, giving his life for the border of Iran, age: early thirties, build: lean, sinewy, athletic archer, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set almond eyes, serene determination, spiritual resolve, inspired by Achaemenid reliefs, not modern, hair: long, thick, windswept black hair, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, calm and focused, skin: sun-bronzed Persian skin, clothing: minimal ancient Persian archer's garb of leather and wool, bare muscular arms, wrapped forearms, accessories: huge composite bow, eagle-feather arrow, quiver, mountain summit, signature: great bow, long curled beard, eagle-feather arrow, photorealistic historical reconstruction of an ancient Persian archer-hero, long thick curled beard, long windswept hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 672281729,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763634.6918874,
+      "asset_id": "3ce3b13aa46641309edd8c072fd2c1b0"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Arash the Archer, legendary Iranian archer who shot the frontier arrow from the summit of Mount Damavand at dawn, giving his life for the border of Iran, age: early thirties, build: lean, sinewy, athletic archer, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set almond eyes, serene determination, spiritual resolve, inspired by Achaemenid reliefs, not modern, hair: long, thick, windswept black hair, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, calm and focused, skin: sun-bronzed Persian skin, clothing: minimal ancient Persian archer's garb of leather and wool, bare muscular arms, wrapped forearms, accessories: huge composite bow, eagle-feather arrow, quiver, mountain summit, signature: great bow, long curled beard, eagle-feather arrow, photorealistic historical reconstruction of an ancient Persian archer-hero, long thick curled beard, long windswept hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 672281728,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763634.6899908,
+      "asset_id": "b3fac3d796004d0789ac03024316be4e"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Arash the Archer, legendary Iranian archer who shot the frontier arrow from the summit of Mount Damavand at dawn, giving his life for the border of Iran, age: early thirties, build: lean, sinewy, athletic archer, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set almond eyes, serene determination, spiritual resolve, inspired by Achaemenid reliefs, not modern, hair: long, thick, windswept black hair, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, calm and focused, skin: sun-bronzed Persian skin, clothing: minimal ancient Persian archer's garb of leather and wool, bare muscular arms, wrapped forearms, accessories: huge composite bow, eagle-feather arrow, quiver, mountain summit, signature: great bow, long curled beard, eagle-feather arrow, photorealistic historical reconstruction of an ancient Persian archer-hero, long thick curled beard, long windswept hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 672281727,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763634.687924,
+      "asset_id": "acd47655e0c044058b3d950eb59db43d"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Arash the Archer, legendary Iranian archer who shot the frontier arrow from the summit of Mount Damavand at dawn, giving his life for the border of Iran, age: early thirties, build: lean, sinewy, athletic archer, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set almond eyes, serene determination, spiritual resolve, inspired by Achaemenid reliefs, not modern, hair: long, thick, windswept black hair, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, calm and focused, skin: sun-bronzed Persian skin, clothing: minimal ancient Persian archer's garb of leather and wool, bare muscular arms, wrapped forearms, accessories: huge composite bow, eagle-feather arrow, quiver, mountain summit, signature: great bow, long curled beard, eagle-feather arrow, photorealistic historical reconstruction of an ancient Persian archer-hero, long thick curled beard, long windswept hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 672281726,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763634.685794,
+      "asset_id": "d272abbb3dc141f09cfccf6786c8b409"
+    }
+  ]
+}

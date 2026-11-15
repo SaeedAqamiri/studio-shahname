@@ -1,0 +1,58 @@
+{
+  "name": "رخش",
+  "name_en": "Rakhsh",
+  "role": "اسب رستم",
+  "description": "Rostam's legendary warhorse, a huge red-and-white roan stallion with unmatched speed and intelligence",
+  "appearance": {
+    "age": "prime adult stallion",
+    "build": "tall, powerful, long-legged warhorse",
+    "face": "proud noble horse head, white blaze and white muzzle",
+    "hair": "long flowing white mane",
+    "eyes": "intelligent dark eyes",
+    "skin": "roan coat of reddish-brown and white patches, white legs and belly",
+    "clothing": "ornate Persian saddle of dark leather with gold and turquoise ornaments, embroidered saddle blanket",
+    "accessories": "bridle with turquoise beads, stirrups, saddlebags",
+    "signature": "red-and-white roan coat, white mane and tail"
+  },
+  "negative": "cartoon horse, tiny pony, unicorn, wings",
+  "canonical_asset_id": "928266b3ff084b3db00fef1c0b70b9d7",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Rakhsh, Rostam's legendary warhorse, a huge red-and-white roan stallion with unmatched speed and intelligence, age: prime adult stallion, build: tall, powerful, long-legged warhorse, face: proud noble horse head, white blaze and white muzzle, hair: long flowing white mane, eyes: intelligent dark eyes, skin: roan coat of reddish-brown and white patches, white legs and belly, clothing: ornate Persian saddle of dark leather with gold and turquoise ornaments, embroidered saddle blanket, accessories: bridle with turquoise beads, stirrups, saddlebags, signature: red-and-white roan coat, white mane and tail, full body side view of the legendary warhorse, standing proud, detailed horse anatomy, realistic horse coat, ornate Persian saddle, epic cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 911041563,
+      "parent": null,
+      "created_at": 1794759074.9289653,
+      "asset_id": "5722667b406f4dcb922d4e45b277d11d"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Rakhsh, Rostam's legendary warhorse, a huge red-and-white roan stallion with unmatched speed and intelligence, age: prime adult stallion, build: tall, powerful, long-legged warhorse, face: proud noble horse head, white blaze and white muzzle, hair: long flowing white mane, eyes: intelligent dark eyes, skin: roan coat of reddish-brown and white patches, white legs and belly, clothing: ornate Persian saddle of dark leather with gold and turquoise ornaments, embroidered saddle blanket, accessories: bridle with turquoise beads, stirrups, saddlebags, signature: red-and-white roan coat, white mane and tail, full body side view of the legendary warhorse, standing proud, detailed horse anatomy, realistic horse coat, ornate Persian saddle, epic cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 911041562,
+      "parent": null,
+      "created_at": 1794759074.927292,
+      "asset_id": "928266b3ff084b3db00fef1c0b70b9d7"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Rakhsh, Rostam's legendary warhorse, a huge red-and-white roan stallion with unmatched speed and intelligence, age: prime adult stallion, build: tall, powerful, long-legged warhorse, face: proud noble horse head, white blaze and white muzzle, hair: long flowing white mane, eyes: intelligent dark eyes, skin: roan coat of reddish-brown and white patches, white legs and belly, clothing: ornate Persian saddle of dark leather with gold and turquoise ornaments, embroidered saddle blanket, accessories: bridle with turquoise beads, stirrups, saddlebags, signature: red-and-white roan coat, white mane and tail, full body side view of the legendary warhorse, standing proud, detailed horse anatomy, realistic horse coat, ornate Persian saddle, epic cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 911041561,
+      "parent": null,
+      "created_at": 1794759074.9256806,
+      "asset_id": "a7e1a6c50a9d4bb78282c0e2c05491ca"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Rakhsh, Rostam's legendary warhorse, a huge red-and-white roan stallion with unmatched speed and intelligence, age: prime adult stallion, build: tall, powerful, long-legged warhorse, face: proud noble horse head, white blaze and white muzzle, hair: long flowing white mane, eyes: intelligent dark eyes, skin: roan coat of reddish-brown and white patches, white legs and belly, clothing: ornate Persian saddle of dark leather with gold and turquoise ornaments, embroidered saddle blanket, accessories: bridle with turquoise beads, stirrups, saddlebags, signature: red-and-white roan coat, white mane and tail, full body side view of the legendary warhorse, standing proud, detailed horse anatomy, realistic horse coat, ornate Persian saddle, epic cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 911041560,
+      "parent": null,
+      "created_at": 1794759074.9232788,
+      "asset_id": "00da8b5c059047df8d4e46745f4f6a42"
+    }
+  ]
+}

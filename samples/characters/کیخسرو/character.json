@@ -1,0 +1,59 @@
+{
+  "name": "کیخسرو",
+  "name_en": "Kay Khosrow",
+  "role": "شاه کیانی، پسر سیاوش",
+  "description": "wise and just Kayanian king, son of Siyavash and Farangis, who avenged his father and finally vanished into the snow",
+  "appearance": {
+    "age": "mid-twenties",
+    "build": "tall, slender, noble",
+    "face": "ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set almond eyes, serene and wise, spiritual aura, inspired by Achaemenid reliefs, not modern",
+    "hair": "long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style",
+    "beard": "long, thick, curled black beard reaching the chest, full moustache, Achaemenid style",
+    "eyes": "dark, deep-set, kind and wise",
+    "skin": "warm bronze Persian skin",
+    "clothing": "royal Kayanian robes of deep green and gold, fine silk and fur mantle",
+    "accessories": "Kayanian crown of gold and turquoise, sword of kingship, royal ring",
+    "signature": "serene Kayanian king, long curled beard"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "911f94ea5b5d46b58e5f5484f0187719",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kay Khosrow, wise and just Kayanian king, son of Siyavash and Farangis, who avenged his father and finally vanished into the snow, age: mid-twenties, build: tall, slender, noble, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set almond eyes, serene and wise, spiritual aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind and wise, skin: warm bronze Persian skin, clothing: royal Kayanian robes of deep green and gold, fine silk and fur mantle, accessories: Kayanian crown of gold and turquoise, sword of kingship, royal ring, signature: serene Kayanian king, long curled beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 620253305,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763678.8368888,
+      "asset_id": "922d0d2f551e4c6f84ef57100a16c08a"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kay Khosrow, wise and just Kayanian king, son of Siyavash and Farangis, who avenged his father and finally vanished into the snow, age: mid-twenties, build: tall, slender, noble, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set almond eyes, serene and wise, spiritual aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind and wise, skin: warm bronze Persian skin, clothing: royal Kayanian robes of deep green and gold, fine silk and fur mantle, accessories: Kayanian crown of gold and turquoise, sword of kingship, royal ring, signature: serene Kayanian king, long curled beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 620253304,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763678.834992,
+      "asset_id": "911f94ea5b5d46b58e5f5484f0187719"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kay Khosrow, wise and just Kayanian king, son of Siyavash and Farangis, who avenged his father and finally vanished into the snow, age: mid-twenties, build: tall, slender, noble, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set almond eyes, serene and wise, spiritual aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind and wise, skin: warm bronze Persian skin, clothing: royal Kayanian robes of deep green and gold, fine silk and fur mantle, accessories: Kayanian crown of gold and turquoise, sword of kingship, royal ring, signature: serene Kayanian king, long curled beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 620253303,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763678.8331814,
+      "asset_id": "3fc0f08f1b2f49b2b114e2d36d80ba1a"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kay Khosrow, wise and just Kayanian king, son of Siyavash and Farangis, who avenged his father and finally vanished into the snow, age: mid-twenties, build: tall, slender, noble, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set almond eyes, serene and wise, spiritual aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind and wise, skin: warm bronze Persian skin, clothing: royal Kayanian robes of deep green and gold, fine silk and fur mantle, accessories: Kayanian crown of gold and turquoise, sword of kingship, royal ring, signature: serene Kayanian king, long curled beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 620253302,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763678.8308482,
+      "asset_id": "fae092d6321446128e7ca157ca176753"
+    }
+  ]
+}

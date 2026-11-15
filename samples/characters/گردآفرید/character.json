@@ -1,0 +1,59 @@
+{
+  "name": "گردآفرید",
+  "name_en": "Gordafarid",
+  "role": "بانوی پهلوان ایرانی",
+  "description": "beautiful Iranian warrior woman, daughter of Gazhdaham, who dueled Sohrab and escaped by cleverness",
+  "appearance": {
+    "age": "mid-twenties",
+    "build": "tall, athletic, strong",
+    "face": "breathtakingly beautiful young Persian face, large kohl-lined almond eyes, warm gentle smile, fierce yet compassionate, soft refined features, captivating charm, not modern makeup",
+    "hair": "long, thick, black hair braided under an ornate helmet, Achaemenid Persian style",
+    "eyes": "large, dark, kohl-lined, kind but fierce",
+    "skin": "warm olive Persian skin",
+    "clothing": "ornate ancient Persian scale armour with gold engraving over a crimson silk tunic, luxurious embroidered sash, mail leggings",
+    "armor": "conical steel helmet with gold ornament and mail aventail, lamellar cuirass",
+    "accessories": "recurved bow, quiver, spear, round shield, veil",
+    "signature": "beautiful smiling female warrior in ornate Persian armour"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "4809009129ff4503917e57e67e7063eb",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Gordafarid, beautiful Iranian warrior woman, daughter of Gazhdaham, who dueled Sohrab and escaped by cleverness, age: mid-twenties, build: tall, athletic, strong, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, warm gentle smile, fierce yet compassionate, soft refined features, captivating charm, not modern makeup, hair: long, thick, black hair braided under an ornate helmet, Achaemenid Persian style, eyes: large, dark, kohl-lined, kind but fierce, skin: warm olive Persian skin, clothing: ornate ancient Persian scale armour with gold engraving over a crimson silk tunic, luxurious embroidered sash, mail leggings, armor: conical steel helmet with gold ornament and mail aventail, lamellar cuirass, accessories: recurved bow, quiver, spear, round shield, veil, signature: beautiful smiling female warrior in ornate Persian armour, beautiful and charming, warm gentle smile, luxurious ornate Persian armour, crimson silk, ancient Persian heroine, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1098282895,
+      "parent": null,
+      "created_at": 1794763962.443902,
+      "asset_id": "a3bdbbb2f156406faf917003fbf054ae"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Gordafarid, beautiful Iranian warrior woman, daughter of Gazhdaham, who dueled Sohrab and escaped by cleverness, age: mid-twenties, build: tall, athletic, strong, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, warm gentle smile, fierce yet compassionate, soft refined features, captivating charm, not modern makeup, hair: long, thick, black hair braided under an ornate helmet, Achaemenid Persian style, eyes: large, dark, kohl-lined, kind but fierce, skin: warm olive Persian skin, clothing: ornate ancient Persian scale armour with gold engraving over a crimson silk tunic, luxurious embroidered sash, mail leggings, armor: conical steel helmet with gold ornament and mail aventail, lamellar cuirass, accessories: recurved bow, quiver, spear, round shield, veil, signature: beautiful smiling female warrior in ornate Persian armour, beautiful and charming, warm gentle smile, luxurious ornate Persian armour, crimson silk, ancient Persian heroine, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1098282894,
+      "parent": null,
+      "created_at": 1794763962.442093,
+      "asset_id": "6b3e9d9820444f248b42c8e8fcb3c4bc"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Gordafarid, beautiful Iranian warrior woman, daughter of Gazhdaham, who dueled Sohrab and escaped by cleverness, age: mid-twenties, build: tall, athletic, strong, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, warm gentle smile, fierce yet compassionate, soft refined features, captivating charm, not modern makeup, hair: long, thick, black hair braided under an ornate helmet, Achaemenid Persian style, eyes: large, dark, kohl-lined, kind but fierce, skin: warm olive Persian skin, clothing: ornate ancient Persian scale armour with gold engraving over a crimson silk tunic, luxurious embroidered sash, mail leggings, armor: conical steel helmet with gold ornament and mail aventail, lamellar cuirass, accessories: recurved bow, quiver, spear, round shield, veil, signature: beautiful smiling female warrior in ornate Persian armour, beautiful and charming, warm gentle smile, luxurious ornate Persian armour, crimson silk, ancient Persian heroine, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1098282893,
+      "parent": null,
+      "created_at": 1794763962.4399605,
+      "asset_id": "9a62eaadb07a4c4ba94a7173693ec545"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Gordafarid, beautiful Iranian warrior woman, daughter of Gazhdaham, who dueled Sohrab and escaped by cleverness, age: mid-twenties, build: tall, athletic, strong, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, warm gentle smile, fierce yet compassionate, soft refined features, captivating charm, not modern makeup, hair: long, thick, black hair braided under an ornate helmet, Achaemenid Persian style, eyes: large, dark, kohl-lined, kind but fierce, skin: warm olive Persian skin, clothing: ornate ancient Persian scale armour with gold engraving over a crimson silk tunic, luxurious embroidered sash, mail leggings, armor: conical steel helmet with gold ornament and mail aventail, lamellar cuirass, accessories: recurved bow, quiver, spear, round shield, veil, signature: beautiful smiling female warrior in ornate Persian armour, beautiful and charming, warm gentle smile, luxurious ornate Persian armour, crimson silk, ancient Persian heroine, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1098282892,
+      "parent": null,
+      "created_at": 1794763962.4378133,
+      "asset_id": "4809009129ff4503917e57e67e7063eb"
+    }
+  ]
+}

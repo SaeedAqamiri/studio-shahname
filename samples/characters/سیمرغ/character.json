@@ -1,0 +1,58 @@
+{
+  "name": "سیمرغ",
+  "name_en": "Simurgh",
+  "role": "پرندهٔ اسطوره‌ای، یاور زال و رستم",
+  "description": "colossal wise mythical Persian phoenix who raised Zal and aided Rostam with a healing feather; its wingspan fills the sky",
+  "appearance": {
+    "age": "ancient",
+    "build": "colossal bird, enormous wingspan filling the sky, divine scale",
+    "face": "noble ancient eagle-like beak, wise luminous eyes, crest of feathers",
+    "hair": "crest and plumage of iridescent emerald, gold and crimson",
+    "eyes": "glowing amber eyes",
+    "skin": "feathers of iridescent emerald, sapphire, gold and crimson",
+    "clothing": "none",
+    "accessories": "long sweeping peacock-like tail feathers, lion-like talons, divine golden aura",
+    "signature": "colossal iridescent phoenix with immense wings"
+  },
+  "negative": "small bird, chicken, parrot, cartoon, dragon, cute",
+  "canonical_asset_id": "777016d7ee014c09b695fc78a0b52826",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Simurgh, colossal wise mythical Persian phoenix who raised Zal and aided Rostam with a healing feather; its wingspan fills the sky, age: ancient, build: colossal bird, enormous wingspan filling the sky, divine scale, face: noble ancient eagle-like beak, wise luminous eyes, crest of feathers, hair: crest and plumage of iridescent emerald, gold and crimson, eyes: glowing amber eyes, skin: feathers of iridescent emerald, sapphire, gold and crimson, clothing: none, accessories: long sweeping peacock-like tail feathers, lion-like talons, divine golden aura, signature: colossal iridescent phoenix with immense wings, colossal gigantic mythical phoenix, wings spread across the sky, tiny human figure on the cliff below for scale, ancient wise eagle-like face, iridescent emerald gold and crimson feathers, divine golden glow, epic scale, cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 520197579,
+      "parent": null,
+      "created_at": 1794759714.8082697,
+      "asset_id": "777016d7ee014c09b695fc78a0b52826"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Simurgh, colossal wise mythical Persian phoenix who raised Zal and aided Rostam with a healing feather; its wingspan fills the sky, age: ancient, build: colossal bird, enormous wingspan filling the sky, divine scale, face: noble ancient eagle-like beak, wise luminous eyes, crest of feathers, hair: crest and plumage of iridescent emerald, gold and crimson, eyes: glowing amber eyes, skin: feathers of iridescent emerald, sapphire, gold and crimson, clothing: none, accessories: long sweeping peacock-like tail feathers, lion-like talons, divine golden aura, signature: colossal iridescent phoenix with immense wings, colossal gigantic mythical phoenix, wings spread across the sky, tiny human figure on the cliff below for scale, ancient wise eagle-like face, iridescent emerald gold and crimson feathers, divine golden glow, epic scale, cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 520197578,
+      "parent": null,
+      "created_at": 1794759714.8057833,
+      "asset_id": "dc298f79dcf443a4bcf238cbfd6b3df6"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Simurgh, colossal wise mythical Persian phoenix who raised Zal and aided Rostam with a healing feather; its wingspan fills the sky, age: ancient, build: colossal bird, enormous wingspan filling the sky, divine scale, face: noble ancient eagle-like beak, wise luminous eyes, crest of feathers, hair: crest and plumage of iridescent emerald, gold and crimson, eyes: glowing amber eyes, skin: feathers of iridescent emerald, sapphire, gold and crimson, clothing: none, accessories: long sweeping peacock-like tail feathers, lion-like talons, divine golden aura, signature: colossal iridescent phoenix with immense wings, colossal gigantic mythical phoenix, wings spread across the sky, tiny human figure on the cliff below for scale, ancient wise eagle-like face, iridescent emerald gold and crimson feathers, divine golden glow, epic scale, cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 520197577,
+      "parent": null,
+      "created_at": 1794759714.8029888,
+      "asset_id": "1b132b54726348fea5373d355577d2f0"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "full",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, full body character design sheet, front view, neutral background, Simurgh, colossal wise mythical Persian phoenix who raised Zal and aided Rostam with a healing feather; its wingspan fills the sky, age: ancient, build: colossal bird, enormous wingspan filling the sky, divine scale, face: noble ancient eagle-like beak, wise luminous eyes, crest of feathers, hair: crest and plumage of iridescent emerald, gold and crimson, eyes: glowing amber eyes, skin: feathers of iridescent emerald, sapphire, gold and crimson, clothing: none, accessories: long sweeping peacock-like tail feathers, lion-like talons, divine golden aura, signature: colossal iridescent phoenix with immense wings, colossal gigantic mythical phoenix, wings spread across the sky, tiny human figure on the cliff below for scale, ancient wise eagle-like face, iridescent emerald gold and crimson feathers, divine golden glow, epic scale, cinematic lighting, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 520197576,
+      "parent": null,
+      "created_at": 1794759714.7993147,
+      "asset_id": "47a266103016465c923c166104da5025"
+    }
+  ]
+}

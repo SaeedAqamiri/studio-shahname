@@ -1,0 +1,60 @@
+{
+  "name": "فریدون",
+  "name_en": "Fereydun",
+  "role": "شاه پیشدادی، شکست‌دهندهٔ ضحاک",
+  "description": "hero-king of the early Persian dynasty who defeated Zahhak with Kaveh's banner and the cow-headed mace",
+  "appearance": {
+    "age": "early thirties",
+    "build": "tall, strong, heroic",
+    "face": "ancient Persian hero-king face, high cheekbones, prominent straight nose, deep-set almond eyes, gentle but resolute, spiritual kingly aura, inspired by Achaemenid reliefs, not modern",
+    "hair": "long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style",
+    "beard": "long, thick, curled black beard reaching the chest, full moustache, Achaemenid style",
+    "eyes": "dark, deep-set, kind and determined",
+    "skin": "warm bronze Persian skin",
+    "clothing": "ancient Persian royal armour with green and gold robes, leather straps",
+    "armor": "ancient Persian helmet and bronze scale corselet",
+    "accessories": "cow-headed mace (Gavzaban), Kaveh's leather apron banner, spear",
+    "signature": "cow-headed mace, long curled beard"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "3fdacd2b883e4520a5b97a3dfbfc7f7b",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Fereydun, hero-king of the early Persian dynasty who defeated Zahhak with Kaveh's banner and the cow-headed mace, age: early thirties, build: tall, strong, heroic, face: ancient Persian hero-king face, high cheekbones, prominent straight nose, deep-set almond eyes, gentle but resolute, spiritual kingly aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind and determined, skin: warm bronze Persian skin, clothing: ancient Persian royal armour with green and gold robes, leather straps, armor: ancient Persian helmet and bronze scale corselet, accessories: cow-headed mace (Gavzaban), Kaveh's leather apron banner, spear, signature: cow-headed mace, long curled beard, photorealistic historical reconstruction of an ancient Persian hero-king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 345814827,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763488.9415817,
+      "asset_id": "3d78562b93a449ed8cfdad7dc3e34c1e"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Fereydun, hero-king of the early Persian dynasty who defeated Zahhak with Kaveh's banner and the cow-headed mace, age: early thirties, build: tall, strong, heroic, face: ancient Persian hero-king face, high cheekbones, prominent straight nose, deep-set almond eyes, gentle but resolute, spiritual kingly aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind and determined, skin: warm bronze Persian skin, clothing: ancient Persian royal armour with green and gold robes, leather straps, armor: ancient Persian helmet and bronze scale corselet, accessories: cow-headed mace (Gavzaban), Kaveh's leather apron banner, spear, signature: cow-headed mace, long curled beard, photorealistic historical reconstruction of an ancient Persian hero-king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 345814826,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763488.9382024,
+      "asset_id": "b52ab94c5c9f4b9796c19f47370686b4"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Fereydun, hero-king of the early Persian dynasty who defeated Zahhak with Kaveh's banner and the cow-headed mace, age: early thirties, build: tall, strong, heroic, face: ancient Persian hero-king face, high cheekbones, prominent straight nose, deep-set almond eyes, gentle but resolute, spiritual kingly aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind and determined, skin: warm bronze Persian skin, clothing: ancient Persian royal armour with green and gold robes, leather straps, armor: ancient Persian helmet and bronze scale corselet, accessories: cow-headed mace (Gavzaban), Kaveh's leather apron banner, spear, signature: cow-headed mace, long curled beard, photorealistic historical reconstruction of an ancient Persian hero-king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 345814825,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763488.9362578,
+      "asset_id": "3fdacd2b883e4520a5b97a3dfbfc7f7b"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Fereydun, hero-king of the early Persian dynasty who defeated Zahhak with Kaveh's banner and the cow-headed mace, age: early thirties, build: tall, strong, heroic, face: ancient Persian hero-king face, high cheekbones, prominent straight nose, deep-set almond eyes, gentle but resolute, spiritual kingly aura, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind and determined, skin: warm bronze Persian skin, clothing: ancient Persian royal armour with green and gold robes, leather straps, armor: ancient Persian helmet and bronze scale corselet, accessories: cow-headed mace (Gavzaban), Kaveh's leather apron banner, spear, signature: cow-headed mace, long curled beard, photorealistic historical reconstruction of an ancient Persian hero-king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 345814824,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763488.9341736,
+      "asset_id": "b4b334818c034200bccc5c8196c3f939"
+    }
+  ]
+}

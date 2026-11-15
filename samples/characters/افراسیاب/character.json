@@ -1,0 +1,60 @@
+{
+  "name": "افراسیاب",
+  "name_en": "Afrasiyab",
+  "role": "شاه توران",
+  "description": "cunning and ruthless king of Turan, ancient enemy of Iran, killer of Siyavash and father of Manijeh",
+  "appearance": {
+    "age": "fifties",
+    "build": "tall, broad, heavy-shouldered",
+    "face": "harsh weathered face, cold calculating expression",
+    "hair": "black hair",
+    "beard": "long black beard",
+    "eyes": "narrow dark eyes",
+    "skin": "deeply tanned skin",
+    "clothing": "Turanian royal armour of dark steel and gold, crimson cloak with fur trim",
+    "armor": "tall fur-trimmed steel helmet, lamellar cuirass",
+    "accessories": "curved sword, dagger, royal seal",
+    "signature": "Turanian fur-trimmed helmet and crimson cloak"
+  },
+  "negative": "kind, young, Persian crown",
+  "canonical_asset_id": "79bced99b72b4b4fb1b4b5a7825fdae6",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Afrasiyab, cunning and ruthless king of Turan, ancient enemy of Iran, killer of Siyavash and father of Manijeh, age: fifties, build: tall, broad, heavy-shouldered, face: harsh weathered face, cold calculating expression, hair: black hair, beard: long black beard, eyes: narrow dark eyes, skin: deeply tanned skin, clothing: Turanian royal armour of dark steel and gold, crimson cloak with fur trim, armor: tall fur-trimmed steel helmet, lamellar cuirass, accessories: curved sword, dagger, royal seal, signature: Turanian fur-trimmed helmet and crimson cloak, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, natural anatomy, historically grounded Persian epic, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1013522360,
+      "parent": null,
+      "created_at": 1794759184.1366951,
+      "asset_id": "b9290fe9752b4ff0b670f4af2ca161e6"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Afrasiyab, cunning and ruthless king of Turan, ancient enemy of Iran, killer of Siyavash and father of Manijeh, age: fifties, build: tall, broad, heavy-shouldered, face: harsh weathered face, cold calculating expression, hair: black hair, beard: long black beard, eyes: narrow dark eyes, skin: deeply tanned skin, clothing: Turanian royal armour of dark steel and gold, crimson cloak with fur trim, armor: tall fur-trimmed steel helmet, lamellar cuirass, accessories: curved sword, dagger, royal seal, signature: Turanian fur-trimmed helmet and crimson cloak, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, natural anatomy, historically grounded Persian epic, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1013522359,
+      "parent": null,
+      "created_at": 1794759184.1348958,
+      "asset_id": "72b46a589f2744e18dd06ef148601fd0"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Afrasiyab, cunning and ruthless king of Turan, ancient enemy of Iran, killer of Siyavash and father of Manijeh, age: fifties, build: tall, broad, heavy-shouldered, face: harsh weathered face, cold calculating expression, hair: black hair, beard: long black beard, eyes: narrow dark eyes, skin: deeply tanned skin, clothing: Turanian royal armour of dark steel and gold, crimson cloak with fur trim, armor: tall fur-trimmed steel helmet, lamellar cuirass, accessories: curved sword, dagger, royal seal, signature: Turanian fur-trimmed helmet and crimson cloak, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, natural anatomy, historically grounded Persian epic, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1013522358,
+      "parent": null,
+      "created_at": 1794759184.1328077,
+      "asset_id": "26556c6f9b484c2499f5a33da26a1cc0"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Afrasiyab, cunning and ruthless king of Turan, ancient enemy of Iran, killer of Siyavash and father of Manijeh, age: fifties, build: tall, broad, heavy-shouldered, face: harsh weathered face, cold calculating expression, hair: black hair, beard: long black beard, eyes: narrow dark eyes, skin: deeply tanned skin, clothing: Turanian royal armour of dark steel and gold, crimson cloak with fur trim, armor: tall fur-trimmed steel helmet, lamellar cuirass, accessories: curved sword, dagger, royal seal, signature: Turanian fur-trimmed helmet and crimson cloak, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, natural anatomy, historically grounded Persian epic, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1013522357,
+      "parent": null,
+      "created_at": 1794759184.1302962,
+      "asset_id": "79bced99b72b4b4fb1b4b5a7825fdae6"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "name": "ضحاک",
+  "name_en": "Zahhak",
+  "role": "شاه ستمگر، مار shoulders",
+  "description": "Arab tyrant king of the Shahnameh with two black serpents growing from his shoulders, fed on the brains of young men",
+  "appearance": {
+    "age": "mid-forties",
+    "build": "tall, heavy-set, imposing",
+    "face": "cruel handsome face, arrogant expression",
+    "hair": "black hair under a crown",
+    "beard": "thick black beard",
+    "eyes": "burning dark eyes",
+    "skin": "dark olive skin",
+    "clothing": "dark crimson and gold royal robes, heavy jeweled belt",
+    "accessories": "black and gold crown, jeweled armbands, two black venomous serpents growing from his shoulders",
+    "signature": "two black snakes on his shoulders"
+  },
+  "negative": "kind face, bright colours, hero",
+  "canonical_asset_id": "73e87c3757084a99b25d0e19ff553919",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Zahhak, Arab tyrant king of the Shahnameh with two black serpents growing from his shoulders, fed on the brains of young men, age: mid-forties, build: tall, heavy-set, imposing, face: cruel handsome face, arrogant expression, hair: black hair under a crown, beard: thick black beard, eyes: burning dark eyes, skin: dark olive skin, clothing: dark crimson and gold royal robes, heavy jeweled belt, accessories: black and gold crown, jeweled armbands, two black venomous serpents growing from his shoulders, signature: two black snakes on his shoulders, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, natural anatomy, historically grounded Persian epic, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1251851877,
+      "parent": null,
+      "created_at": 1794759001.8070667,
+      "asset_id": "aa7e988dd35c46d2b0f7564e3049e6dc"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Zahhak, Arab tyrant king of the Shahnameh with two black serpents growing from his shoulders, fed on the brains of young men, age: mid-forties, build: tall, heavy-set, imposing, face: cruel handsome face, arrogant expression, hair: black hair under a crown, beard: thick black beard, eyes: burning dark eyes, skin: dark olive skin, clothing: dark crimson and gold royal robes, heavy jeweled belt, accessories: black and gold crown, jeweled armbands, two black venomous serpents growing from his shoulders, signature: two black snakes on his shoulders, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, natural anatomy, historically grounded Persian epic, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1251851876,
+      "parent": null,
+      "created_at": 1794759001.8053243,
+      "asset_id": "efd89e5ed70d45308e6b6ace51ff2af4"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Zahhak, Arab tyrant king of the Shahnameh with two black serpents growing from his shoulders, fed on the brains of young men, age: mid-forties, build: tall, heavy-set, imposing, face: cruel handsome face, arrogant expression, hair: black hair under a crown, beard: thick black beard, eyes: burning dark eyes, skin: dark olive skin, clothing: dark crimson and gold royal robes, heavy jeweled belt, accessories: black and gold crown, jeweled armbands, two black venomous serpents growing from his shoulders, signature: two black snakes on his shoulders, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, natural anatomy, historically grounded Persian epic, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1251851875,
+      "parent": null,
+      "created_at": 1794759001.803596,
+      "asset_id": "73e87c3757084a99b25d0e19ff553919"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Zahhak, Arab tyrant king of the Shahnameh with two black serpents growing from his shoulders, fed on the brains of young men, age: mid-forties, build: tall, heavy-set, imposing, face: cruel handsome face, arrogant expression, hair: black hair under a crown, beard: thick black beard, eyes: burning dark eyes, skin: dark olive skin, clothing: dark crimson and gold royal robes, heavy jeweled belt, accessories: black and gold crown, jeweled armbands, two black venomous serpents growing from his shoulders, signature: two black snakes on his shoulders, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, natural anatomy, historically grounded Persian epic, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1251851874,
+      "parent": null,
+      "created_at": 1794759001.801096,
+      "asset_id": "ed74b7803a344a77990bc6b90dda668d"
+    }
+  ]
+}

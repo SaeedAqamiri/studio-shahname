@@ -1,0 +1,59 @@
+{
+  "name": "سیاوش",
+  "name_en": "Siyavash",
+  "role": "شاهزادهٔ کیانی، پدر کیخسرو",
+  "description": "virtuous and luminous young Kayanian prince, son of Kay Kavus, famed for his extraordinary beauty, purity and tragic innocence, only twenty years old",
+  "appearance": {
+    "age": "twenty years old",
+    "build": "slender, graceful, athletic",
+    "face": "extraordinarily beautiful young ancient Persian princely face, high cheekbones, prominent straight nose, large dark almond eyes, gentle kind expression, luminous spiritual purity, inspired by Achaemenid ideals of beauty, not modern",
+    "hair": "long, thick, voluminous black wavy hair falling to the shoulders, Achaemenid Persian style",
+    "beard": "none, completely clean-shaven, no moustache, no stubble",
+    "eyes": "large, dark, kind and innocent",
+    "skin": "fair luminous Persian skin",
+    "clothing": "white and gold Kayanian princely robes with turquoise embroidery, fine silk sash",
+    "accessories": "slender golden crown, riding boots, bow and quiver",
+    "signature": "moonlike youthful beauty, long thick hair, white and gold"
+  },
+  "negative": "beard, moustache, stubble, facial hair, modern haircut, short hair, modern face, contemporary, European, Roman, Greek, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "c6a43892aa7e4f44994e9cc8b95cd88d",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Siyavash, virtuous and luminous young Kayanian prince, son of Kay Kavus, famed for his extraordinary beauty, purity and tragic innocence, only twenty years old, age: twenty years old, build: slender, graceful, athletic, face: extraordinarily beautiful young ancient Persian princely face, high cheekbones, prominent straight nose, large dark almond eyes, gentle kind expression, luminous spiritual purity, inspired by Achaemenid ideals of beauty, not modern, hair: long, thick, voluminous black wavy hair falling to the shoulders, Achaemenid Persian style, beard: none, completely clean-shaven, no moustache, no stubble, eyes: large, dark, kind and innocent, skin: fair luminous Persian skin, clothing: white and gold Kayanian princely robes with turquoise embroidery, fine silk sash, accessories: slender golden crown, riding boots, bow and quiver, signature: moonlike youthful beauty, long thick hair, white and gold, photorealistic historical reconstruction of an ancient Persian prince, long thick voluminous hair, beardless youthful face, Achaemenid Persian, luminous beauty, cinematic lighting, detailed skin pores, realistic hair, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1574731823,
+      "parent": null,
+      "created_at": 1794763814.0633507,
+      "asset_id": "0f95d6593bcc4805b6e547e9371c937b"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Siyavash, virtuous and luminous young Kayanian prince, son of Kay Kavus, famed for his extraordinary beauty, purity and tragic innocence, only twenty years old, age: twenty years old, build: slender, graceful, athletic, face: extraordinarily beautiful young ancient Persian princely face, high cheekbones, prominent straight nose, large dark almond eyes, gentle kind expression, luminous spiritual purity, inspired by Achaemenid ideals of beauty, not modern, hair: long, thick, voluminous black wavy hair falling to the shoulders, Achaemenid Persian style, beard: none, completely clean-shaven, no moustache, no stubble, eyes: large, dark, kind and innocent, skin: fair luminous Persian skin, clothing: white and gold Kayanian princely robes with turquoise embroidery, fine silk sash, accessories: slender golden crown, riding boots, bow and quiver, signature: moonlike youthful beauty, long thick hair, white and gold, photorealistic historical reconstruction of an ancient Persian prince, long thick voluminous hair, beardless youthful face, Achaemenid Persian, luminous beauty, cinematic lighting, detailed skin pores, realistic hair, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1574731822,
+      "parent": null,
+      "created_at": 1794763814.0616333,
+      "asset_id": "c6a43892aa7e4f44994e9cc8b95cd88d"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Siyavash, virtuous and luminous young Kayanian prince, son of Kay Kavus, famed for his extraordinary beauty, purity and tragic innocence, only twenty years old, age: twenty years old, build: slender, graceful, athletic, face: extraordinarily beautiful young ancient Persian princely face, high cheekbones, prominent straight nose, large dark almond eyes, gentle kind expression, luminous spiritual purity, inspired by Achaemenid ideals of beauty, not modern, hair: long, thick, voluminous black wavy hair falling to the shoulders, Achaemenid Persian style, beard: none, completely clean-shaven, no moustache, no stubble, eyes: large, dark, kind and innocent, skin: fair luminous Persian skin, clothing: white and gold Kayanian princely robes with turquoise embroidery, fine silk sash, accessories: slender golden crown, riding boots, bow and quiver, signature: moonlike youthful beauty, long thick hair, white and gold, photorealistic historical reconstruction of an ancient Persian prince, long thick voluminous hair, beardless youthful face, Achaemenid Persian, luminous beauty, cinematic lighting, detailed skin pores, realistic hair, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1574731821,
+      "parent": null,
+      "created_at": 1794763814.059901,
+      "asset_id": "164945eae97648889752ddba81225149"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Siyavash, virtuous and luminous young Kayanian prince, son of Kay Kavus, famed for his extraordinary beauty, purity and tragic innocence, only twenty years old, age: twenty years old, build: slender, graceful, athletic, face: extraordinarily beautiful young ancient Persian princely face, high cheekbones, prominent straight nose, large dark almond eyes, gentle kind expression, luminous spiritual purity, inspired by Achaemenid ideals of beauty, not modern, hair: long, thick, voluminous black wavy hair falling to the shoulders, Achaemenid Persian style, beard: none, completely clean-shaven, no moustache, no stubble, eyes: large, dark, kind and innocent, skin: fair luminous Persian skin, clothing: white and gold Kayanian princely robes with turquoise embroidery, fine silk sash, accessories: slender golden crown, riding boots, bow and quiver, signature: moonlike youthful beauty, long thick hair, white and gold, photorealistic historical reconstruction of an ancient Persian prince, long thick voluminous hair, beardless youthful face, Achaemenid Persian, luminous beauty, cinematic lighting, detailed skin pores, realistic hair, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1574731820,
+      "parent": null,
+      "created_at": 1794763814.0580556,
+      "asset_id": "5412b1ca7ae346bf892f69fa95fed8c8"
+    }
+  ]
+}

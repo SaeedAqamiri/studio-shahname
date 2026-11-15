@@ -1,0 +1,59 @@
+{
+  "name": "کاوه آهنگر",
+  "name_en": "Kaveh the Blacksmith",
+  "role": "آهنگر، رهبر قیام علیه ضحاک",
+  "description": "humble blacksmith who led the Iranian uprising against the tyrant Zahhak; his leather apron became the banner of Iran",
+  "appearance": {
+    "age": "forty years old",
+    "build": "powerfully built, broad shoulders, muscular bare arms",
+    "face": "ancient Persian noble face, high cheekbones, prominent straight nose, deep-set dark eyes, dignified and compassionate, righteous inner calm, inspired by Achaemenid reliefs, not modern",
+    "hair": "long, thick, black hair tied loosely back, soot-dusted, Achaemenid Persian style",
+    "beard": "long, thick, curled black beard reaching the chest, full moustache, Achaemenid style",
+    "eyes": "dark, deep-set, kind but resolute",
+    "skin": "weathered sun-darkened bronze Persian skin with soot",
+    "clothing": "simple undyed wool tunic, heavy scarred leather blacksmith apron, leather bracers, worn boots",
+    "accessories": "blacksmith hammer, tongs, leather apron mounted on a spear as a banner",
+    "signature": "blacksmith's leather apron banner, long curled beard"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "0c88cff4f8704db49727ba4dbbbc6fdd",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kaveh the Blacksmith, humble blacksmith who led the Iranian uprising against the tyrant Zahhak; his leather apron became the banner of Iran, age: forty years old, build: powerfully built, broad shoulders, muscular bare arms, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set dark eyes, dignified and compassionate, righteous inner calm, inspired by Achaemenid reliefs, not modern, hair: long, thick, black hair tied loosely back, soot-dusted, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind but resolute, skin: weathered sun-darkened bronze Persian skin with soot, clothing: simple undyed wool tunic, heavy scarred leather blacksmith apron, leather bracers, worn boots, accessories: blacksmith hammer, tongs, leather apron mounted on a spear as a banner, signature: blacksmith's leather apron banner, long curled beard, photorealistic historical reconstruction of an ancient Persian blacksmith-hero, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 579730070,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763536.1204505,
+      "asset_id": "1c783305be534b29a13ca6e69b41bca7"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kaveh the Blacksmith, humble blacksmith who led the Iranian uprising against the tyrant Zahhak; his leather apron became the banner of Iran, age: forty years old, build: powerfully built, broad shoulders, muscular bare arms, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set dark eyes, dignified and compassionate, righteous inner calm, inspired by Achaemenid reliefs, not modern, hair: long, thick, black hair tied loosely back, soot-dusted, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind but resolute, skin: weathered sun-darkened bronze Persian skin with soot, clothing: simple undyed wool tunic, heavy scarred leather blacksmith apron, leather bracers, worn boots, accessories: blacksmith hammer, tongs, leather apron mounted on a spear as a banner, signature: blacksmith's leather apron banner, long curled beard, photorealistic historical reconstruction of an ancient Persian blacksmith-hero, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 579730069,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763536.1186807,
+      "asset_id": "3d801fa3080b43f68be2af715544362a"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kaveh the Blacksmith, humble blacksmith who led the Iranian uprising against the tyrant Zahhak; his leather apron became the banner of Iran, age: forty years old, build: powerfully built, broad shoulders, muscular bare arms, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set dark eyes, dignified and compassionate, righteous inner calm, inspired by Achaemenid reliefs, not modern, hair: long, thick, black hair tied loosely back, soot-dusted, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind but resolute, skin: weathered sun-darkened bronze Persian skin with soot, clothing: simple undyed wool tunic, heavy scarred leather blacksmith apron, leather bracers, worn boots, accessories: blacksmith hammer, tongs, leather apron mounted on a spear as a banner, signature: blacksmith's leather apron banner, long curled beard, photorealistic historical reconstruction of an ancient Persian blacksmith-hero, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 579730068,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763536.1160984,
+      "asset_id": "0c88cff4f8704db49727ba4dbbbc6fdd"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Kaveh the Blacksmith, humble blacksmith who led the Iranian uprising against the tyrant Zahhak; his leather apron became the banner of Iran, age: forty years old, build: powerfully built, broad shoulders, muscular bare arms, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set dark eyes, dignified and compassionate, righteous inner calm, inspired by Achaemenid reliefs, not modern, hair: long, thick, black hair tied loosely back, soot-dusted, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, kind but resolute, skin: weathered sun-darkened bronze Persian skin with soot, clothing: simple undyed wool tunic, heavy scarred leather blacksmith apron, leather bracers, worn boots, accessories: blacksmith hammer, tongs, leather apron mounted on a spear as a banner, signature: blacksmith's leather apron banner, long curled beard, photorealistic historical reconstruction of an ancient Persian blacksmith-hero, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 579730067,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763536.1118822,
+      "asset_id": "6090d5b1d2764abfb5e6baa11c0cd55c"
+    }
+  ]
+}

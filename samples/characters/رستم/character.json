@@ -1,0 +1,65 @@
+{
+  "name": "رستم",
+  "name_en": "Rostam",
+  "role": "protagonist",
+  "description": "legendary Persian hero of Shahnameh, the strongest warrior of Iran, son of Zal and Rudabeh, champion of the Kayanian kings",
+  "appearance": {
+    "age": "late thirties",
+    "build": "towering, powerful, noble, broad shoulders",
+    "face": "ancient Persian noble face, high cheekbones, prominent straight nose, deep-set almond eyes, dignified spiritual expression, inspired by the Achaemenid reliefs of Cyrus the Great and Darius the Great at Persepolis, 6th century BCE Persian, not modern",
+    "hair": "long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style",
+    "beard": "long, thick, curled black beard reaching the chest, full moustache, Achaemenid style",
+    "eyes": "dark, deep-set, wise and kind",
+    "skin": "warm bronze Persian skin",
+    "clothing": "legendary tiger-skin cloak (Babr-e Bayan) over ancient Persian lamellar armour, leather bracers",
+    "armor": "ancient Persian steel helmet with horsehair plume",
+    "accessories": "legendary mace, bow, lasso, leopard-skin saddle",
+    "signature": "tiger-skin cloak, long curled beard, towering stature"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "afb6125ed2324184a50070f8e64ceda1",
+  "voice": {
+    "provider": "fish",
+    "voice_id": "char_a31f353b_1794763451",
+    "language": "fa",
+    "settings": {}
+  },
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "inpaint",
+      "prompt": "a thick black beard and long dark mustache, same man, same face, same lighting, highly detailed hair",
+      "seed": null,
+      "parent": "01e3a9f0b09940c7b7918f067231af4b",
+      "created_at": 1794765826.55233,
+      "asset_id": "37f81c1cf8694089b2906cd8fa1c6a05"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "upload",
+      "prompt": "",
+      "seed": null,
+      "parent": null,
+      "created_at": 1794765808.0306666,
+      "asset_id": "01e3a9f0b09940c7b7918f067231af4b"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Rostam, legendary Persian hero of Shahnameh, the strongest warrior of Iran, son of Zal and Rudabeh, champion of the Kayanian kings, age: late thirties, build: towering, powerful, noble, broad shoulders, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set almond eyes, dignified spiritual expression, inspired by the Achaemenid reliefs of Cyrus the Great and Darius the Great at Persepolis, 6th century BCE Persian, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, wise and kind, skin: warm bronze Persian skin, clothing: legendary tiger-skin cloak (Babr-e Bayan) over ancient Persian lamellar armour, leather bracers, armor: ancient Persian steel helmet with horsehair plume, accessories: legendary mace, bow, lasso, leopard-skin saddle, signature: tiger-skin cloak, long curled beard, towering stature, photorealistic historical reconstruction of an ancient Persian hero, full long curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 862500099,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763398.1978064,
+      "asset_id": "748aa6d1ffb84120b02acadfc738e002"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Rostam, legendary Persian hero of Shahnameh, the strongest warrior of Iran, son of Zal and Rudabeh, champion of the Kayanian kings, age: late thirties, build: towering, powerful, noble, broad shoulders, face: ancient Persian noble face, high cheekbones, prominent straight nose, deep-set almond eyes, dignified spiritual expression, inspired by the Achaemenid reliefs of Cyrus the Great and Darius the Great at Persepolis, 6th century BCE Persian, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: dark, deep-set, wise and kind, skin: warm bronze Persian skin, clothing: legendary tiger-skin cloak (Babr-e Bayan) over ancient Persian lamellar armour, leather bracers, armor: ancient Persian steel helmet with horsehair plume, accessories: legendary mace, bow, lasso, leopard-skin saddle, signature: tiger-skin cloak, long curled beard, towering stature, photorealistic historical reconstruction of an ancient Persian hero, full long curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 862500098,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763398.1957135,
+      "asset_id": "7ccf669fbfe14cd1bb5cddc20145cd31"
+    }
+  ]
+}

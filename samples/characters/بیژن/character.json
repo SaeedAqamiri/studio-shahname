@@ -1,0 +1,60 @@
+{
+  "name": "بیژن",
+  "name_en": "Bijan",
+  "role": "پهلوان جوان ایرانی",
+  "description": "young Persian knight, son of Giv and grandson of Rostam, famous for the Bijan and Manijeh romance",
+  "appearance": {
+    "age": "early twenties",
+    "build": "tall, athletic, youthful",
+    "face": "ancient Persian young warrior face, high cheekbones, prominent straight nose, deep-set dark eyes, bold and kind, inspired by Achaemenid reliefs, not modern",
+    "hair": "long, thick, dark wavy hair, shoulder-length, Achaemenid Persian style",
+    "beard": "thick dark beard, medium length, neatly shaped, Achaemenid style",
+    "eyes": "dark, deep-set, bold",
+    "skin": "warm bronze Persian skin",
+    "clothing": "ancient Persian lamellar armour with gold trim over a dark tunic",
+    "armor": "steel helmet with nose guard, mail sleeves",
+    "accessories": "mace, bow, quiver, round shield",
+    "signature": "young Persian knight, long dark hair, medium beard"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "4e342a89ed2d4fb09abbf075ec87e428",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Bijan, young Persian knight, son of Giv and grandson of Rostam, famous for the Bijan and Manijeh romance, age: early twenties, build: tall, athletic, youthful, face: ancient Persian young warrior face, high cheekbones, prominent straight nose, deep-set dark eyes, bold and kind, inspired by Achaemenid reliefs, not modern, hair: long, thick, dark wavy hair, shoulder-length, Achaemenid Persian style, beard: thick dark beard, medium length, neatly shaped, Achaemenid style, eyes: dark, deep-set, bold, skin: warm bronze Persian skin, clothing: ancient Persian lamellar armour with gold trim over a dark tunic, armor: steel helmet with nose guard, mail sleeves, accessories: mace, bow, quiver, round shield, signature: young Persian knight, long dark hair, medium beard, photorealistic historical reconstruction of an ancient Persian young warrior, long thick dark hair, medium thick beard, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 790687481,
+      "parent": null,
+      "created_at": 1794763854.9467857,
+      "asset_id": "2ffdc0fcc0cc44bc86e046197280aa27"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Bijan, young Persian knight, son of Giv and grandson of Rostam, famous for the Bijan and Manijeh romance, age: early twenties, build: tall, athletic, youthful, face: ancient Persian young warrior face, high cheekbones, prominent straight nose, deep-set dark eyes, bold and kind, inspired by Achaemenid reliefs, not modern, hair: long, thick, dark wavy hair, shoulder-length, Achaemenid Persian style, beard: thick dark beard, medium length, neatly shaped, Achaemenid style, eyes: dark, deep-set, bold, skin: warm bronze Persian skin, clothing: ancient Persian lamellar armour with gold trim over a dark tunic, armor: steel helmet with nose guard, mail sleeves, accessories: mace, bow, quiver, round shield, signature: young Persian knight, long dark hair, medium beard, photorealistic historical reconstruction of an ancient Persian young warrior, long thick dark hair, medium thick beard, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 790687480,
+      "parent": null,
+      "created_at": 1794763854.9448197,
+      "asset_id": "4e342a89ed2d4fb09abbf075ec87e428"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Bijan, young Persian knight, son of Giv and grandson of Rostam, famous for the Bijan and Manijeh romance, age: early twenties, build: tall, athletic, youthful, face: ancient Persian young warrior face, high cheekbones, prominent straight nose, deep-set dark eyes, bold and kind, inspired by Achaemenid reliefs, not modern, hair: long, thick, dark wavy hair, shoulder-length, Achaemenid Persian style, beard: thick dark beard, medium length, neatly shaped, Achaemenid style, eyes: dark, deep-set, bold, skin: warm bronze Persian skin, clothing: ancient Persian lamellar armour with gold trim over a dark tunic, armor: steel helmet with nose guard, mail sleeves, accessories: mace, bow, quiver, round shield, signature: young Persian knight, long dark hair, medium beard, photorealistic historical reconstruction of an ancient Persian young warrior, long thick dark hair, medium thick beard, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 790687479,
+      "parent": null,
+      "created_at": 1794763854.9430554,
+      "asset_id": "0b6343b9a2ee4979b11662fdf65e9493"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Bijan, young Persian knight, son of Giv and grandson of Rostam, famous for the Bijan and Manijeh romance, age: early twenties, build: tall, athletic, youthful, face: ancient Persian young warrior face, high cheekbones, prominent straight nose, deep-set dark eyes, bold and kind, inspired by Achaemenid reliefs, not modern, hair: long, thick, dark wavy hair, shoulder-length, Achaemenid Persian style, beard: thick dark beard, medium length, neatly shaped, Achaemenid style, eyes: dark, deep-set, bold, skin: warm bronze Persian skin, clothing: ancient Persian lamellar armour with gold trim over a dark tunic, armor: steel helmet with nose guard, mail sleeves, accessories: mace, bow, quiver, round shield, signature: young Persian knight, long dark hair, medium beard, photorealistic historical reconstruction of an ancient Persian young warrior, long thick dark hair, medium thick beard, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 790687478,
+      "parent": null,
+      "created_at": 1794763854.941136,
+      "asset_id": "ff6a6058ec2f4c59a5aa781d2aa9ffe2"
+    }
+  ]
+}

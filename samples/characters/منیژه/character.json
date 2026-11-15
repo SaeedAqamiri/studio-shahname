@@ -1,0 +1,58 @@
+{
+  "name": "منیژه",
+  "name_en": "Manijeh",
+  "role": "شاهدخت توران، دختر افراسیاب",
+  "description": "Turanian princess, daughter of Afrasiyab, who fell in love with Bijan and shared his exile and imprisonment",
+  "appearance": {
+    "age": "twenty years old",
+    "build": "graceful, slender",
+    "face": "breathtakingly beautiful young Persian face, large kohl-lined almond eyes, gentle warm smile, soft luminous skin, captivating charm, loving and kind, not modern makeup",
+    "hair": "long, thick, voluminous black wavy hair, adorned with a jeweled diadem",
+    "eyes": "large, dark, kohl-lined, kind and loving",
+    "skin": "fair luminous Persian skin",
+    "clothing": "luxurious Turanian silk brocade gown in violet and gold, heavy gold embroidery, jeweled belt, flowing layers",
+    "accessories": "jeweled diadem, gold earrings, bracelets",
+    "signature": "radiant gentle smile, luxurious violet-gold silk, Turanian princess"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "1d902fd1328946629fd1e368daff8c30",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Manijeh, Turanian princess, daughter of Afrasiyab, who fell in love with Bijan and shared his exile and imprisonment, age: twenty years old, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, gentle warm smile, soft luminous skin, captivating charm, loving and kind, not modern makeup, hair: long, thick, voluminous black wavy hair, adorned with a jeweled diadem, eyes: large, dark, kohl-lined, kind and loving, skin: fair luminous Persian skin, clothing: luxurious Turanian silk brocade gown in violet and gold, heavy gold embroidery, jeweled belt, flowing layers, accessories: jeweled diadem, gold earrings, bracelets, signature: radiant gentle smile, luxurious violet-gold silk, Turanian princess, more beautiful and charming, gentle warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1181969629,
+      "parent": null,
+      "created_at": 1794763998.6901178,
+      "asset_id": "4f5b9c6a115f4eccb44397c446d75b4b"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Manijeh, Turanian princess, daughter of Afrasiyab, who fell in love with Bijan and shared his exile and imprisonment, age: twenty years old, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, gentle warm smile, soft luminous skin, captivating charm, loving and kind, not modern makeup, hair: long, thick, voluminous black wavy hair, adorned with a jeweled diadem, eyes: large, dark, kohl-lined, kind and loving, skin: fair luminous Persian skin, clothing: luxurious Turanian silk brocade gown in violet and gold, heavy gold embroidery, jeweled belt, flowing layers, accessories: jeweled diadem, gold earrings, bracelets, signature: radiant gentle smile, luxurious violet-gold silk, Turanian princess, more beautiful and charming, gentle warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1181969628,
+      "parent": null,
+      "created_at": 1794763998.6874533,
+      "asset_id": "b0efcfa5abed4b2aae3065620e50bbd3"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Manijeh, Turanian princess, daughter of Afrasiyab, who fell in love with Bijan and shared his exile and imprisonment, age: twenty years old, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, gentle warm smile, soft luminous skin, captivating charm, loving and kind, not modern makeup, hair: long, thick, voluminous black wavy hair, adorned with a jeweled diadem, eyes: large, dark, kohl-lined, kind and loving, skin: fair luminous Persian skin, clothing: luxurious Turanian silk brocade gown in violet and gold, heavy gold embroidery, jeweled belt, flowing layers, accessories: jeweled diadem, gold earrings, bracelets, signature: radiant gentle smile, luxurious violet-gold silk, Turanian princess, more beautiful and charming, gentle warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1181969627,
+      "parent": null,
+      "created_at": 1794763998.6853924,
+      "asset_id": "1d902fd1328946629fd1e368daff8c30"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Manijeh, Turanian princess, daughter of Afrasiyab, who fell in love with Bijan and shared his exile and imprisonment, age: twenty years old, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, gentle warm smile, soft luminous skin, captivating charm, loving and kind, not modern makeup, hair: long, thick, voluminous black wavy hair, adorned with a jeweled diadem, eyes: large, dark, kohl-lined, kind and loving, skin: fair luminous Persian skin, clothing: luxurious Turanian silk brocade gown in violet and gold, heavy gold embroidery, jeweled belt, flowing layers, accessories: jeweled diadem, gold earrings, bracelets, signature: radiant gentle smile, luxurious violet-gold silk, Turanian princess, more beautiful and charming, gentle warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1181969626,
+      "parent": null,
+      "created_at": 1794763998.682336,
+      "asset_id": "417671e768a14d84a88b53275d12ca90"
+    }
+  ]
+}

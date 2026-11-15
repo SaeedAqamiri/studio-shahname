@@ -1,0 +1,59 @@
+{
+  "name": "جمشید",
+  "name_en": "Jamshid",
+  "role": "شاه اسطوره‌ای پیشدادی",
+  "description": "golden-age king of ancient Iran who possessed the divination cup and the throne of kings, later undone by pride",
+  "appearance": {
+    "age": "forties",
+    "build": "tall, regal",
+    "face": "ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set kohl-dark eyes, handsome and arrogant, inspired by Achaemenid reliefs, not modern",
+    "hair": "long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style",
+    "beard": "long, thick, curled black beard reaching the chest, full moustache, Achaemenid style",
+    "eyes": "kohl-dark, deep-set, proud",
+    "skin": "warm bronze Persian skin",
+    "clothing": "magnificent jeweled ancient Persian royal robes of purple and gold, heavy gold collar",
+    "accessories": "tall golden crown, golden divination cup, jeweled throne",
+    "signature": "golden cup and crown, long curled beard"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "f48ffc4f0f604438a1e4700a24f54082",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Jamshid, golden-age king of ancient Iran who possessed the divination cup and the throne of kings, later undone by pride, age: forties, build: tall, regal, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set kohl-dark eyes, handsome and arrogant, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: kohl-dark, deep-set, proud, skin: warm bronze Persian skin, clothing: magnificent jeweled ancient Persian royal robes of purple and gold, heavy gold collar, accessories: tall golden crown, golden divination cup, jeweled throne, signature: golden cup and crown, long curled beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 215846436,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763780.3681467,
+      "asset_id": "5cf0339700cf4ca4b613fffd484cba0a"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Jamshid, golden-age king of ancient Iran who possessed the divination cup and the throne of kings, later undone by pride, age: forties, build: tall, regal, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set kohl-dark eyes, handsome and arrogant, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: kohl-dark, deep-set, proud, skin: warm bronze Persian skin, clothing: magnificent jeweled ancient Persian royal robes of purple and gold, heavy gold collar, accessories: tall golden crown, golden divination cup, jeweled throne, signature: golden cup and crown, long curled beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 215846435,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763780.3662405,
+      "asset_id": "f48ffc4f0f604438a1e4700a24f54082"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Jamshid, golden-age king of ancient Iran who possessed the divination cup and the throne of kings, later undone by pride, age: forties, build: tall, regal, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set kohl-dark eyes, handsome and arrogant, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: kohl-dark, deep-set, proud, skin: warm bronze Persian skin, clothing: magnificent jeweled ancient Persian royal robes of purple and gold, heavy gold collar, accessories: tall golden crown, golden divination cup, jeweled throne, signature: golden cup and crown, long curled beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 215846434,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763780.362625,
+      "asset_id": "72974146b4054c9790ecc90f41e19e83"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Jamshid, golden-age king of ancient Iran who possessed the divination cup and the throne of kings, later undone by pride, age: forties, build: tall, regal, face: ancient Persian kingly face, high cheekbones, prominent straight nose, deep-set kohl-dark eyes, handsome and arrogant, inspired by Achaemenid reliefs, not modern, hair: long, thick, voluminous black wavy hair, shoulder-length, Achaemenid Persian style, beard: long, thick, curled black beard reaching the chest, full moustache, Achaemenid style, eyes: kohl-dark, deep-set, proud, skin: warm bronze Persian skin, clothing: magnificent jeweled ancient Persian royal robes of purple and gold, heavy gold collar, accessories: tall golden crown, golden divination cup, jeweled throne, signature: golden cup and crown, long curled beard, photorealistic historical reconstruction of an ancient Persian king, long thick curled beard, long voluminous hair, Achaemenid Persian, cinematic lighting, detailed skin pores, realistic hair and beard, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 215846433,
+      "parent": "0746029a404544aca16281da30b6ad02",
+      "created_at": 1794763780.3600457,
+      "asset_id": "995f6eea77534a7c8658bb2cf974021a"
+    }
+  ]
+}

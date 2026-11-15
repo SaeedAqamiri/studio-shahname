@@ -1,0 +1,58 @@
+{
+  "name": "تهمینه",
+  "name_en": "Tahmineh",
+  "role": "شاهدخت سمنگان، مادر سهراب",
+  "description": "beautiful and wise princess of Samangan, daughter of the king, who loved Rostam and bore Sohrab",
+  "appearance": {
+    "age": "early twenties",
+    "build": "graceful, slender",
+    "face": "breathtakingly beautiful young Persian face, large kohl-lined almond eyes, radiant warm smile, dimples, soft luminous skin, captivating charm, gentle and alluring, not modern makeup",
+    "hair": "long, thick, voluminous dark wavy hair, adorned with pearls and gold",
+    "eyes": "large, dark, kohl-lined, kind and loving",
+    "skin": "warm luminous Persian skin",
+    "clothing": "luxurious ancient Persian silk brocade gown in deep rose and gold, heavy gold embroidery, jeweled belt, rich layered fabrics",
+    "accessories": "jeweled headdress, gold earrings, rings, rosewater flask",
+    "signature": "radiant smile, luxurious rose-gold silk, Samangan princess"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "13cbdd941ef04257a733d21a160fd944",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Tahmineh, beautiful and wise princess of Samangan, daughter of the king, who loved Rostam and bore Sohrab, age: early twenties, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, radiant warm smile, dimples, soft luminous skin, captivating charm, gentle and alluring, not modern makeup, hair: long, thick, voluminous dark wavy hair, adorned with pearls and gold, eyes: large, dark, kohl-lined, kind and loving, skin: warm luminous Persian skin, clothing: luxurious ancient Persian silk brocade gown in deep rose and gold, heavy gold embroidery, jeweled belt, rich layered fabrics, accessories: jeweled headdress, gold earrings, rings, rosewater flask, signature: radiant smile, luxurious rose-gold silk, Samangan princess, more beautiful and charming, radiant warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 536612925,
+      "parent": null,
+      "created_at": 1794763892.0365307,
+      "asset_id": "4adb5595a71844bb9f872a6a853d3612"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Tahmineh, beautiful and wise princess of Samangan, daughter of the king, who loved Rostam and bore Sohrab, age: early twenties, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, radiant warm smile, dimples, soft luminous skin, captivating charm, gentle and alluring, not modern makeup, hair: long, thick, voluminous dark wavy hair, adorned with pearls and gold, eyes: large, dark, kohl-lined, kind and loving, skin: warm luminous Persian skin, clothing: luxurious ancient Persian silk brocade gown in deep rose and gold, heavy gold embroidery, jeweled belt, rich layered fabrics, accessories: jeweled headdress, gold earrings, rings, rosewater flask, signature: radiant smile, luxurious rose-gold silk, Samangan princess, more beautiful and charming, radiant warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 536612924,
+      "parent": null,
+      "created_at": 1794763892.0341218,
+      "asset_id": "13cbdd941ef04257a733d21a160fd944"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Tahmineh, beautiful and wise princess of Samangan, daughter of the king, who loved Rostam and bore Sohrab, age: early twenties, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, radiant warm smile, dimples, soft luminous skin, captivating charm, gentle and alluring, not modern makeup, hair: long, thick, voluminous dark wavy hair, adorned with pearls and gold, eyes: large, dark, kohl-lined, kind and loving, skin: warm luminous Persian skin, clothing: luxurious ancient Persian silk brocade gown in deep rose and gold, heavy gold embroidery, jeweled belt, rich layered fabrics, accessories: jeweled headdress, gold earrings, rings, rosewater flask, signature: radiant smile, luxurious rose-gold silk, Samangan princess, more beautiful and charming, radiant warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 536612923,
+      "parent": null,
+      "created_at": 1794763892.0307581,
+      "asset_id": "a32bea85fd024c97b41a79c539e08ff4"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Tahmineh, beautiful and wise princess of Samangan, daughter of the king, who loved Rostam and bore Sohrab, age: early twenties, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, radiant warm smile, dimples, soft luminous skin, captivating charm, gentle and alluring, not modern makeup, hair: long, thick, voluminous dark wavy hair, adorned with pearls and gold, eyes: large, dark, kohl-lined, kind and loving, skin: warm luminous Persian skin, clothing: luxurious ancient Persian silk brocade gown in deep rose and gold, heavy gold embroidery, jeweled belt, rich layered fabrics, accessories: jeweled headdress, gold earrings, rings, rosewater flask, signature: radiant smile, luxurious rose-gold silk, Samangan princess, more beautiful and charming, radiant warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 536612922,
+      "parent": null,
+      "created_at": 1794763892.0260153,
+      "asset_id": "291bf3714c054dd0831777970f4f7b8b"
+    }
+  ]
+}

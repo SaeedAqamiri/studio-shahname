@@ -1,0 +1,60 @@
+{
+  "name": "سهراب",
+  "name_en": "Sohrab",
+  "role": "پهلوان تورانی، پسر رستم",
+  "description": "very young 18-year-old Turanian champion, only son of Rostam and Tahmineh; fearless, generous and doomed, with a smooth beardless adolescent face",
+  "appearance": {
+    "age": "18 years old, adolescent, baby-faced",
+    "build": "tall, athletic, heroic build, almost as tall as Rostam",
+    "face": "very young handsome beardless face, smooth hairless cheeks, strong jaw, open brave expression",
+    "hair": "long dark wavy hair escaping a pointed helmet",
+    "beard": "none, completely clean-shaven, no moustache, no stubble",
+    "eyes": "dark expressive eyes",
+    "skin": "warm olive skin",
+    "clothing": "Turanian lamellar armour with gold, turquoise and crimson details, crimson trousers, leather boots",
+    "armor": "pointed steel helmet with horsehair plume, scale mail sleeves",
+    "accessories": "ornate recurved bow, quiver, spear, round shield",
+    "signature": "youthful beardless face in Turanian armour"
+  },
+  "negative": "beard, moustache, stubble, facial hair, old, mature, wrinkled, European medieval armour, Roman armour",
+  "canonical_asset_id": "0bb36626dc56418f8e1a25f3e64e4d84",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Sohrab, very young 18-year-old Turanian champion, only son of Rostam and Tahmineh; fearless, generous and doomed, with a smooth beardless adolescent face, age: 18 years old, adolescent, baby-faced, build: tall, athletic, heroic build, almost as tall as Rostam, face: very young handsome beardless face, smooth hairless cheeks, strong jaw, open brave expression, hair: long dark wavy hair escaping a pointed helmet, beard: none, completely clean-shaven, no moustache, no stubble, eyes: dark expressive eyes, skin: warm olive skin, clothing: Turanian lamellar armour with gold, turquoise and crimson details, crimson trousers, leather boots, armor: pointed steel helmet with horsehair plume, scale mail sleeves, accessories: ornate recurved bow, quiver, spear, round shield, signature: youthful beardless face in Turanian armour, very young 18-year-old man, smooth beardless face, no facial hair at all, clean-shaven, youthful adolescent features, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1416689063,
+      "parent": null,
+      "created_at": 1794759604.4418514,
+      "asset_id": "d111c8262dc14e4497f7f7413907b6e8"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Sohrab, very young 18-year-old Turanian champion, only son of Rostam and Tahmineh; fearless, generous and doomed, with a smooth beardless adolescent face, age: 18 years old, adolescent, baby-faced, build: tall, athletic, heroic build, almost as tall as Rostam, face: very young handsome beardless face, smooth hairless cheeks, strong jaw, open brave expression, hair: long dark wavy hair escaping a pointed helmet, beard: none, completely clean-shaven, no moustache, no stubble, eyes: dark expressive eyes, skin: warm olive skin, clothing: Turanian lamellar armour with gold, turquoise and crimson details, crimson trousers, leather boots, armor: pointed steel helmet with horsehair plume, scale mail sleeves, accessories: ornate recurved bow, quiver, spear, round shield, signature: youthful beardless face in Turanian armour, very young 18-year-old man, smooth beardless face, no facial hair at all, clean-shaven, youthful adolescent features, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1416689062,
+      "parent": null,
+      "created_at": 1794759604.4399796,
+      "asset_id": "60c8ece5548342a9a746f7d08c4823a0"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Sohrab, very young 18-year-old Turanian champion, only son of Rostam and Tahmineh; fearless, generous and doomed, with a smooth beardless adolescent face, age: 18 years old, adolescent, baby-faced, build: tall, athletic, heroic build, almost as tall as Rostam, face: very young handsome beardless face, smooth hairless cheeks, strong jaw, open brave expression, hair: long dark wavy hair escaping a pointed helmet, beard: none, completely clean-shaven, no moustache, no stubble, eyes: dark expressive eyes, skin: warm olive skin, clothing: Turanian lamellar armour with gold, turquoise and crimson details, crimson trousers, leather boots, armor: pointed steel helmet with horsehair plume, scale mail sleeves, accessories: ornate recurved bow, quiver, spear, round shield, signature: youthful beardless face in Turanian armour, very young 18-year-old man, smooth beardless face, no facial hair at all, clean-shaven, youthful adolescent features, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1416689061,
+      "parent": null,
+      "created_at": 1794759604.437921,
+      "asset_id": "0bb36626dc56418f8e1a25f3e64e4d84"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Sohrab, very young 18-year-old Turanian champion, only son of Rostam and Tahmineh; fearless, generous and doomed, with a smooth beardless adolescent face, age: 18 years old, adolescent, baby-faced, build: tall, athletic, heroic build, almost as tall as Rostam, face: very young handsome beardless face, smooth hairless cheeks, strong jaw, open brave expression, hair: long dark wavy hair escaping a pointed helmet, beard: none, completely clean-shaven, no moustache, no stubble, eyes: dark expressive eyes, skin: warm olive skin, clothing: Turanian lamellar armour with gold, turquoise and crimson details, crimson trousers, leather boots, armor: pointed steel helmet with horsehair plume, scale mail sleeves, accessories: ornate recurved bow, quiver, spear, round shield, signature: youthful beardless face in Turanian armour, very young 18-year-old man, smooth beardless face, no facial hair at all, clean-shaven, youthful adolescent features, photorealistic, cinematic lighting, detailed skin pores, realistic materials, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1416689060,
+      "parent": null,
+      "created_at": 1794759604.4354703,
+      "asset_id": "0f7776492d1c4fd5b90e6d517a629c72"
+    }
+  ]
+}

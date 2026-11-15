@@ -1,0 +1,58 @@
+{
+  "name": "رودابه",
+  "name_en": "Rudabeh",
+  "role": "شاهدخت کابل، مادر رستم",
+  "description": "legendary beauty of Kabul, daughter of Mehrab, who married Zal and gave birth to Rostam",
+  "appearance": {
+    "age": "twenty years old",
+    "build": "graceful, slender",
+    "face": "breathtakingly beautiful young Persian face, large kohl-lined almond eyes, radiant warm smile, dimples, soft luminous skin, captivating charm, gentle and alluring, not modern makeup",
+    "hair": "long, thick, voluminous black wavy hair scented with rosewater, adorned with gold and pearls",
+    "eyes": "large, dark, kohl-lined, kind and loving",
+    "skin": "fair luminous Persian skin",
+    "clothing": "luxurious Kabuli silk brocade gown in turquoise and gold, heavy gold embroidery, jeweled belt, flowing layers",
+    "accessories": "jeweled headdress, gold earrings, a rose in her hand",
+    "signature": "radiant smile, luxurious turquoise-gold silk, rose-scented hair"
+  },
+  "negative": "modern haircut, short hair, trimmed beard, clean-shaven, modern face, contemporary, European, Roman, Greek, stone relief, sculpture, carving, monochrome, cartoon, anime, 3d render, CGI, plastic skin",
+  "canonical_asset_id": "10be137c18ca4b91a470f6f83f98d43b",
+  "voice": null,
+  "images": [
+    {
+      "file": "01.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Rudabeh, legendary beauty of Kabul, daughter of Mehrab, who married Zal and gave birth to Rostam, age: twenty years old, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, radiant warm smile, dimples, soft luminous skin, captivating charm, gentle and alluring, not modern makeup, hair: long, thick, voluminous black wavy hair scented with rosewater, adorned with gold and pearls, eyes: large, dark, kohl-lined, kind and loving, skin: fair luminous Persian skin, clothing: luxurious Kabuli silk brocade gown in turquoise and gold, heavy gold embroidery, jeweled belt, flowing layers, accessories: jeweled headdress, gold earrings, a rose in her hand, signature: radiant smile, luxurious turquoise-gold silk, rose-scented hair, more beautiful and charming, radiant warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1656523518,
+      "parent": null,
+      "created_at": 1794763925.9794922,
+      "asset_id": "ccc444ef7673479fa111989401090fc8"
+    },
+    {
+      "file": "02.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Rudabeh, legendary beauty of Kabul, daughter of Mehrab, who married Zal and gave birth to Rostam, age: twenty years old, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, radiant warm smile, dimples, soft luminous skin, captivating charm, gentle and alluring, not modern makeup, hair: long, thick, voluminous black wavy hair scented with rosewater, adorned with gold and pearls, eyes: large, dark, kohl-lined, kind and loving, skin: fair luminous Persian skin, clothing: luxurious Kabuli silk brocade gown in turquoise and gold, heavy gold embroidery, jeweled belt, flowing layers, accessories: jeweled headdress, gold earrings, a rose in her hand, signature: radiant smile, luxurious turquoise-gold silk, rose-scented hair, more beautiful and charming, radiant warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1656523517,
+      "parent": null,
+      "created_at": 1794763925.9768486,
+      "asset_id": "0c5fd9e36bed410b855a38322c366243"
+    },
+    {
+      "file": "03.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Rudabeh, legendary beauty of Kabul, daughter of Mehrab, who married Zal and gave birth to Rostam, age: twenty years old, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, radiant warm smile, dimples, soft luminous skin, captivating charm, gentle and alluring, not modern makeup, hair: long, thick, voluminous black wavy hair scented with rosewater, adorned with gold and pearls, eyes: large, dark, kohl-lined, kind and loving, skin: fair luminous Persian skin, clothing: luxurious Kabuli silk brocade gown in turquoise and gold, heavy gold embroidery, jeweled belt, flowing layers, accessories: jeweled headdress, gold earrings, a rose in her hand, signature: radiant smile, luxurious turquoise-gold silk, rose-scented hair, more beautiful and charming, radiant warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1656523516,
+      "parent": null,
+      "created_at": 1794763925.9743447,
+      "asset_id": "10be137c18ca4b91a470f6f83f98d43b"
+    },
+    {
+      "file": "04.jpg",
+      "kind": "portrait",
+      "prompt": "hyper-realistic cinematic film still, photorealistic, epic Persian historical fantasy, faithful to Ferdowsi's Shahnameh, museum-quality costume and armour, practical makeup and prosthetics, natural skin texture, subtle film grain, character portrait, three-quarter view, facing camera, neutral background, Rudabeh, legendary beauty of Kabul, daughter of Mehrab, who married Zal and gave birth to Rostam, age: twenty years old, build: graceful, slender, face: breathtakingly beautiful young Persian face, large kohl-lined almond eyes, radiant warm smile, dimples, soft luminous skin, captivating charm, gentle and alluring, not modern makeup, hair: long, thick, voluminous black wavy hair scented with rosewater, adorned with gold and pearls, eyes: large, dark, kohl-lined, kind and loving, skin: fair luminous Persian skin, clothing: luxurious Kabuli silk brocade gown in turquoise and gold, heavy gold embroidery, jeweled belt, flowing layers, accessories: jeweled headdress, gold earrings, a rose in her hand, signature: radiant smile, luxurious turquoise-gold silk, rose-scented hair, more beautiful and charming, radiant warm smile, luxurious Persian silk brocade, gold embroidery, ancient Persian princess, photorealistic, cinematic lighting, detailed skin pores, realistic fabric, 8k film still, lighting: dramatic volumetric light, soft rim light, candlelit and sunlit period interiors, palette: warm gold, deep teal, terracotta, charcoal, aged bronze, camera: 35mm anamorphic, shallow depth of field, cinematic composition",
+      "seed": 1656523515,
+      "parent": null,
+      "created_at": 1794763925.9687283,
+      "asset_id": "8e51fd1407e942daa2d4268b457bf67e"
+    }
+  ]
+}
