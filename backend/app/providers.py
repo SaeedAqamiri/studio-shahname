@@ -40,8 +40,9 @@ class ImageProvider:
 class FluxGatewayProvider(ImageProvider):
     name = "flux_gateway"
 
-    def __init__(self, base: str):
+    def __init__(self, base: str, edit_base: str | None = None):
         self.base = base.rstrip("/")
+        self.edit_base = (edit_base or config.IMAGE_EDIT_BASE).rstrip("/")
 
     async def generate(self, prompt: str, negative: str, width: int, height: int,
                        seed: int | None = None, references: list[bytes] | None = None) -> bytes:
@@ -63,9 +64,33 @@ class FluxGatewayProvider(ImageProvider):
             img.raise_for_status()
             return img.content
 
+    async def edit(self, prompt: str, negative: str, image: bytes, mask: bytes,
+                   seed: int | None = None, steps: int = 20, denoise: float = 0.9) -> bytes:
+        files = {"image": ("image.png", image, "image/png"),
+                 "mask": ("mask.png", mask, "image/png")}
+        data = {"prompt": prompt, "negative": negative, "steps": str(steps), "denoise": str(denoise)}
+        if seed is not None:
+            data["seed"] = str(seed)
+        async with httpx.AsyncClient(timeout=900) as client:
+            r = await client.post(self.edit_base + "/v1/images/edits", files=files, data=data)
+            r.raise_for_status()
+            item = (r.json().get("data") or [{}])[0]
+            if not item.get("b64_json"):
+                raise RuntimeError("edit provider returned no image")
+            return base64.b64decode(item["b64_json"])
+
 
 class OpenAIImagesProvider(ImageProvider):
     name = "openai_images"
+
+    async def edit(self, prompt: str, negative: str, image: bytes, mask: bytes,
+                   seed: int | None = None, steps: int = 20, denoise: float = 0.9) -> bytes:
+        files = [("image", ("image.png", image, "image/png")), ("mask", ("mask.png", mask, "image/png"))]
+        data = {"model": self.model, "prompt": prompt, "size": "1024x1024", "n": "1", "response_format": "b64_json"}
+        async with httpx.AsyncClient(timeout=900) as client:
+            r = await client.post(self.base + "/images/edits", headers=_auth(self.key), data=data, files=files)
+            r.raise_for_status()
+            return self._parse(r.json())
 
     def __init__(self, base: str, model: str, key: str):
         self.base, self.model, self.key = base.rstrip("/"), model, key
@@ -106,7 +131,7 @@ def get_image_provider(cfg: dict | None = None) -> ImageProvider:
     base = cfg.get("base_url") or config.FLUX_API_BASE
     if provider == "openai_images":
         return OpenAIImagesProvider(base, cfg.get("model") or config.OPENAI_IMAGE_MODEL, cfg.get("api_key", ""))
-    return FluxGatewayProvider(base)
+    return FluxGatewayProvider(base, cfg.get("edit_base_url"))
 
 
 class LLM:

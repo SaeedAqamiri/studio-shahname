@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { api } from "./api";
 import type { Character, Project, VoiceCatalogEntry } from "./types";
 
@@ -171,6 +171,9 @@ function CharacterView({ character, onRefresh, onError, onMessage }: {
   const [count, setCount] = useState(4);
   const [refId, setRefId] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [maskTarget, setMaskTarget] = useState<any>(null);
+  const [uploading, setUploading] = useState(false);
+  const fileRef = useRef<HTMLInputElement>(null);
   const [edit, setEdit] = useState(false);
   const [desc, setDesc] = useState(character.description);
   const [nameEn, setNameEn] = useState(character.name_en || "");
@@ -184,6 +187,17 @@ function CharacterView({ character, onRefresh, onError, onMessage }: {
   useEffect(() => {
     api.voices().then((r) => setVoiceCatalog(r.data)).catch(() => {});
   }, []);
+
+  async function uploadImage(e: React.ChangeEvent<HTMLInputElement>) {
+    const f = e.target.files?.[0];
+    if (!f) return;
+    setUploading(true); onError("");
+    try {
+      await api.uploadCharacterImage(character.id, f);
+      onMessage("عکس آپلود شد"); onRefresh();
+    } catch (err: any) { onError(String(err.message || err)); }
+    finally { setUploading(false); if (fileRef.current) fileRef.current.value = ""; }
+  }
 
   async function generate() {
     setBusy(true); onError("");
@@ -294,6 +308,10 @@ function CharacterView({ character, onRefresh, onError, onMessage }: {
           <button className="btn primary" disabled={busy} onClick={generate}>
             {busy ? "در حال ساخت…" : refId ? "بازسازی از تصویر مرجع" : "تولید تصویر"}
           </button>
+          <button className="btn ghost" onClick={() => fileRef.current?.click()} disabled={uploading}>
+            {uploading ? "…" : "آپلود عکس"}
+          </button>
+          <input ref={fileRef} type="file" accept="image/*" style={{ display: "none" }} onChange={uploadImage} />
         </div>
         {refId && <p className="hint">تصویر مرجع انتخاب شده — چهره حفظ می‌شود. <button className="link" onClick={() => setRefId(null)}>حذف مرجع</button></p>}
       </div>
@@ -310,6 +328,7 @@ function CharacterView({ character, onRefresh, onError, onMessage }: {
                 <div className="row">
                   {!isCanonical && <button className="link" onClick={() => makeCanonical(img.id)}>انتخاب اصلی</button>}
                   <button className="link" onClick={() => { setRefId(img.asset_id); setExtra(""); window.scrollTo({ top: 0, behavior: "smooth" }); }}>ویرایش از این</button>
+                  <button className="link" onClick={() => setMaskTarget(img)}>ویرایش ناحیه‌ای</button>
                 </div>
               </figcaption>
             </figure>
@@ -317,6 +336,13 @@ function CharacterView({ character, onRefresh, onError, onMessage }: {
         })}
         {!character.images.length && <div className="placeholder small">هنوز تصویری ساخته نشده.</div>}
       </div>
+
+      {maskTarget && (
+        <MaskEditor character={character} image={maskTarget}
+          onClose={() => setMaskTarget(null)}
+          onDone={() => { setMaskTarget(null); onRefresh(); onMessage("ویرایش ناحیه‌ای اعمال شد"); }}
+          onError={onError} />
+      )}
 
       <div className="two-col">
         <VariantsPanel character={character} onRefresh={onRefresh} onMessage={onMessage} onError={onError} />
@@ -430,6 +456,7 @@ function SettingsView() {
         const c = cfg[s.key];
         payload[s.key] = { provider: c.provider, base_url: c.base_url, model: c.model, api_key: c.api_key || "" };
         if (s.key === "tts") payload[s.key].default_voice = c.default_voice || "";
+        if (s.key === "image") payload[s.key].edit_base_url = c.edit_base_url || "";
       }
       const res = await api.saveSettings(payload);
       setCfg(res); setMsg("تنظیمات ذخیره شد");
@@ -474,6 +501,10 @@ function SettingsView() {
               <input value={c.base_url || ""} onChange={(e) => set(s.key, "base_url", e.target.value)} dir="ltr" />
               <label style={{ marginTop: 10 }}>مدل</label>
               <input value={c.model || ""} onChange={(e) => set(s.key, "model", e.target.value)} dir="ltr" />
+              {s.key === "image" && (<>
+                <label style={{ marginTop: 10 }}>آدرس ویرایش ناحیه‌ای (Inpaint)</label>
+                <input value={c.edit_base_url || ""} onChange={(e) => set(s.key, "edit_base_url", e.target.value)} dir="ltr" />
+              </>)}
               {s.key === "tts" && (<>
                 <label style={{ marginTop: 10 }}>صدای پیش‌فرض</label>
                 <input value={c.default_voice || ""} onChange={(e) => set(s.key, "default_voice", e.target.value)} dir="ltr" />
@@ -498,21 +529,27 @@ function SettingsView() {
 
 function ScriptView({ projectId }: { projectId?: string }) {
   const [script, setScript] = useState<any>(null);
+  const [scriptList, setScriptList] = useState<any[]>([]);
   const [treatment, setTreatment] = useState("");
   const [sceneCount, setSceneCount] = useState(6);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState("");
 
+  async function loadScript(id: string) {
+    const full = await api.getScript(id);
+    setScript(full); setTreatment(full.treatment || "");
+  }
+
   useEffect(() => {
     (async () => {
       if (!projectId) return;
       try {
         const list = (await api.scripts(projectId)).data;
+        setScriptList(list);
         let s = list[0];
         if (!s) s = await api.createScript(projectId, { title: "سناریوی جدید", treatment: "" });
-        const full = await api.getScript(s.id);
-        setScript(full); setTreatment(full.treatment || "");
+        await loadScript(s.id);
       } catch (e: any) { setErr(String(e.message || e)); }
     })();
   }, [projectId]);
@@ -563,6 +600,20 @@ function ScriptView({ projectId }: { projectId?: string }) {
         <div>
           <h2>{script.title || "سناریو"}</h2>
           <p className="muted">{script.logline || "طرح کلی را بنویس و بگذار AI سناریو را بسازد."}</p>
+          {scriptList.length > 1 && (
+            <div className="row" style={{ marginTop: 8 }}>
+              <label style={{ margin: 0 }}>فیلم</label>
+              <select value={script.id} onChange={(e) => loadScript(e.target.value)}>
+                {[...scriptList]
+                  .sort((a, b) => (a.meta?.film_no ?? 99) - (b.meta?.film_no ?? 99))
+                  .map((s: any) => (
+                    <option key={s.id} value={s.id}>
+                      {s.meta?.film_no ? `فیلم ${s.meta.film_no} — ${s.title}` : s.title}
+                    </option>
+                  ))}
+              </select>
+            </div>
+          )}
         </div>
         <button className="btn primary" onClick={generate} disabled={busy || !treatment.trim()}>
           {busy ? "در حال نوشتن…" : "تولید سناریو با AI"}
@@ -633,20 +684,24 @@ function ScriptView({ projectId }: { projectId?: string }) {
 
 function ScenesView({ projectId }: { projectId?: string }) {
   const [script, setScript] = useState<any>(null);
+  const [scriptList, setScriptList] = useState<any[]>([]);
   const [characters, setCharacters] = useState<any[]>([]);
   const [selected, setSelected] = useState<string | null>(null);
   const [err, setErr] = useState("");
+
+  async function loadScript(id: string) {
+    const full = await api.getScript(id);
+    setScript(full);
+    setSelected(full.scenes?.length ? full.scenes[0].id : null);
+  }
 
   useEffect(() => {
     (async () => {
       if (!projectId) return;
       try {
         const list = (await api.scripts(projectId)).data;
-        if (list[0]) {
-          const full = await api.getScript(list[0].id);
-          setScript(full);
-          if (full.scenes?.length) setSelected(full.scenes[0].id);
-        }
+        setScriptList(list);
+        if (list[0]) await loadScript(list[0].id);
         setCharacters((await api.characters(projectId)).data);
       } catch (e: any) { setErr(String(e.message || e)); }
     })();
@@ -658,7 +713,24 @@ function ScenesView({ projectId }: { projectId?: string }) {
   return (
     <div className="scenes-view">
       <div className="char-head">
-        <div><h2>صحنه‌ها — {script.title}</h2><p className="muted">بازیگران را وصل کن، فریم نگاه بساز و بعد انیمیت کن.</p></div>
+        <div>
+          <h2>صحنه‌ها — {script.title}</h2>
+          <p className="muted">بازیگران را وصل کن، فریم نگاه بساز و بعد انیمیت کن.</p>
+          {scriptList.length > 1 && (
+            <div className="row" style={{ marginTop: 8 }}>
+              <label style={{ margin: 0 }}>فیلم</label>
+              <select value={script.id} onChange={(e) => loadScript(e.target.value)}>
+                {[...scriptList]
+                  .sort((a, b) => (a.meta?.film_no ?? 99) - (b.meta?.film_no ?? 99))
+                  .map((s: any) => (
+                    <option key={s.id} value={s.id}>
+                      {s.meta?.film_no ? `فیلم ${s.meta.film_no} — ${s.title}` : s.title}
+                    </option>
+                  ))}
+              </select>
+            </div>
+          )}
+        </div>
       </div>
       <div className="split">
         <ul className="scene-list">
@@ -943,6 +1015,107 @@ function RenderView({ projectId }: { projectId?: string }) {
           </div>
         ))}
         {!rows.length && <div className="placeholder small">هنوز رندی نیست.</div>}
+      </div>
+    </div>
+  );
+}
+
+function MaskEditor({ character, image, onClose, onDone, onError }: {
+  character: Character; image: any; onClose: () => void; onDone: () => void; onError: (s: string) => void;
+}) {
+  const viewRef = useRef<HTMLCanvasElement | null>(null);
+  const maskRef = useRef<HTMLCanvasElement | null>(null);
+  const drawing = useRef(false);
+  const [brush, setBrush] = useState(30);
+  const [prompt, setPrompt] = useState("");
+  const [busy, setBusy] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      const w = img.naturalWidth, h = img.naturalHeight;
+      const mc = maskRef.current!; mc.width = w; mc.height = h;
+      const mctx = mc.getContext("2d")!;
+      mctx.fillStyle = "#000"; mctx.fillRect(0, 0, w, h);
+      const vc = viewRef.current!; vc.width = w; vc.height = h;
+      vc.getContext("2d")!.clearRect(0, 0, w, h);
+    };
+    img.src = image.url;
+  }, [image.url]);
+
+  function point(e: React.PointerEvent) {
+    const c = viewRef.current!;
+    const r = c.getBoundingClientRect();
+    return {
+      x: (e.clientX - r.left) * (c.width / r.width),
+      y: (e.clientY - r.top) * (c.height / r.height),
+      k: c.width / r.width,
+    };
+  }
+
+  function paint(e: React.PointerEvent) {
+    if (!drawing.current || !viewRef.current || !maskRef.current) return;
+    const { x, y, k } = point(e);
+    const r = (brush / 2) * k;
+    const m = maskRef.current.getContext("2d")!;
+    m.fillStyle = "#fff"; m.beginPath(); m.arc(x, y, r, 0, Math.PI * 2); m.fill();
+    const v = viewRef.current.getContext("2d")!;
+    v.fillStyle = "rgba(214,178,94,0.45)"; v.beginPath(); v.arc(x, y, r, 0, Math.PI * 2); v.fill();
+  }
+
+  function clearMask() {
+    const mc = maskRef.current!;
+    const m = mc.getContext("2d")!;
+    m.fillStyle = "#000"; m.fillRect(0, 0, mc.width, mc.height);
+    const vc = viewRef.current!;
+    vc.getContext("2d")!.clearRect(0, 0, vc.width, vc.height);
+  }
+
+  async function apply() {
+    if (!prompt.trim()) return;
+    setBusy(true);
+    try {
+      const mask = maskRef.current!.toDataURL("image/png");
+      await api.editCharacter(character.id, {
+        image_asset_id: image.asset_id, mask, prompt, denoise: 0.9,
+      });
+      onDone();
+    } catch (e: any) { onError("ویرایش ناموفق: " + String(e.message || e)); }
+    finally { setBusy(false); }
+  }
+
+  return (
+    <div className="modal-backdrop" onClick={onClose}>
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
+        <div className="char-head">
+          <div><h3>ویرایش ناحیه‌ای</h3><p className="muted">روی ناحیه‌ای که می‌خواهی عوض شود بکش، بعد توضیح بده.</p></div>
+          <button className="link" onClick={onClose}>بستن</button>
+        </div>
+        <div className="mask-stage">
+          <img src={image.url} alt="" />
+          <canvas ref={viewRef}
+            onPointerDown={(e) => { drawing.current = true; (e.target as HTMLElement).setPointerCapture(e.pointerId); paint(e); }}
+            onPointerMove={paint}
+            onPointerUp={() => { drawing.current = false; }}
+            onPointerLeave={() => { drawing.current = false; }}
+          />
+        </div>
+        <div className="row" style={{ marginTop: 12 }}>
+          <div style={{ maxWidth: 220 }}>
+            <label>ضخامت قلم</label>
+            <input type="range" min={8} max={120} value={brush} onChange={(e) => setBrush(Number(e.target.value))} />
+          </div>
+          <button className="btn ghost" onClick={clearMask}>پاک کردن ماسک</button>
+        </div>
+        <label style={{ marginTop: 10 }}>تغییر مورد نظر (انگلیسی بهتر است)</label>
+        <textarea rows={2} value={prompt} onChange={(e) => setPrompt(e.target.value)}
+          placeholder="e.g. add a thick black beard and long mustache, keep the same face" dir="ltr" />
+        <div className="row" style={{ marginTop: 10 }}>
+          <button className="btn primary" onClick={apply} disabled={busy || !prompt.trim()}>
+            {busy ? "در حال ویرایش…" : "اعمال ویرایش"}
+          </button>
+          <span className="hint">فقط ناحیهٔ رنگ‌شده بازسازی می‌شود.</span>
+        </div>
       </div>
     </div>
   );

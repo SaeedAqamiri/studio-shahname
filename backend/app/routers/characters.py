@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import asyncio
+import base64
 import random
+import re
 from pathlib import Path
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
@@ -222,3 +224,65 @@ def delete_variant(character_id: str, variant_id: str, db: Session = Depends(get
     db.delete(v)
     db.commit()
     return {"deleted": True}
+
+
+class EditIn(BaseModel):
+    image_asset_id: str
+    mask: str  # PNG data URL
+    prompt: str = Field(min_length=1)
+    negative: str = ""
+    steps: int = Field(default=20, ge=1, le=60)
+    seed: int | None = None
+    denoise: float = Field(default=0.9, ge=0.3, le=1.0)
+
+
+@router.post("/api/characters/{character_id}/images/upload")
+async def upload_character_image(character_id: str, file: UploadFile = File(...),
+                                 db: Session = Depends(get_db)) -> dict:
+    c = db.get(Character, character_id)
+    if not c:
+        raise HTTPException(404, "character not found")
+    raw = await file.read()
+    if len(raw) > 25 * 1024 * 1024:
+        raise HTTPException(413, "image too large")
+    ext = (file.filename or "upload.png").rsplit(".", 1)[-1].lower()
+    if ext not in ("png", "jpg", "jpeg", "webp"):
+        ext = "png"
+    asset = save_asset(db, raw, "image", ext, mime=file.content_type or "image/png",
+                       meta={"character": character_id, "kind": "upload"})
+    img = CharacterImage(character_id=c.id, asset_id=asset.id, kind="upload", prompt="")
+    db.add(img)
+    db.flush()
+    if not c.canonical_image_id:
+        c.canonical_image_id = asset.id
+    db.commit()
+    return image_public(db, img)
+
+
+@router.post("/api/characters/{character_id}/edit")
+async def edit_character_image(character_id: str, body: EditIn, db: Session = Depends(get_db)) -> dict:
+    c = db.get(Character, character_id)
+    if not c:
+        raise HTTPException(404, "character not found")
+    base = db.get(Asset, body.image_asset_id)
+    if not base or not Path(base.path).is_file():
+        raise HTTPException(422, "base image not found")
+    m = re.match(r"^data:image/[a-zA-Z+]+;base64,(.+)$", body.mask, re.S)
+    if not m:
+        raise HTTPException(422, "mask must be a PNG data URL")
+    try:
+        mask = base64.b64decode(m.group(1))
+    except Exception:
+        raise HTTPException(422, "invalid mask")
+    project = db.get(Project, c.project_id)
+    provider = get_image_provider(settings_store.section(db, "image"))
+    raw = await provider.edit(body.prompt, body.negative or character_negative(project, c),
+                              Path(base.path).read_bytes(), mask, body.seed, body.steps, body.denoise)
+    asset = save_asset(db, raw, "image", "png",
+                       meta={"character": c.id, "kind": "inpaint", "prompt": body.prompt,
+                             "parent": body.image_asset_id})
+    img = CharacterImage(character_id=c.id, asset_id=asset.id, kind="inpaint",
+                         prompt=body.prompt, parent_id=body.image_asset_id)
+    db.add(img)
+    db.commit()
+    return image_public(db, img)

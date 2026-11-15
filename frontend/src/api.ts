@@ -72,6 +72,13 @@ export const api = {
     req<any>(`/api/projects/${projectId}/export`, { method: "POST", headers: J, body: JSON.stringify(body) }),
   dubScene: (sceneId: string) => req<any>(`/api/scenes/${sceneId}/dub`, { method: "POST", headers: J, body: "{}" }),
   subtitles: (scriptId: string) => req<any>(`/api/scripts/${scriptId}/subtitles`),
+  uploadCharacterImage: (id: string, file: File) => {
+    const fd = new FormData();
+    fd.append("file", file);
+    return req<any>(`/api/characters/${id}/images/upload`, { method: "POST", body: fd });
+  },
+  editCharacter: (id: string, body: any) =>
+    req<any>(`/api/characters/${id}/edit`, { method: "POST", headers: J, body: JSON.stringify(body) }),
   cloneVoice: (id: string, file: File, transcript: string) => {
     const fd = new FormData();
     fd.append("file", file);

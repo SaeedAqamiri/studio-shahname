@@ -21,6 +21,7 @@ DEFAULTS: dict[str, dict] = {
         "provider": config.IMAGE_PROVIDER,
         "base_url": config.FLUX_API_BASE if config.IMAGE_PROVIDER == "flux_gateway" else config.OPENAI_IMAGE_BASE,
         "model": config.OPENAI_IMAGE_MODEL,
+        "edit_base_url": config.IMAGE_EDIT_BASE,
         "api_key": "",
     },
     "video": {

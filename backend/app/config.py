@@ -30,6 +30,7 @@ IMAGE_PROVIDER = os.environ.get("IMAGE_PROVIDER", "flux_gateway")
 FLUX_API_BASE = os.environ.get("FLUX_API_BASE", "http://172.16.20.117:8090").rstrip("/")
 OPENAI_IMAGE_BASE = os.environ.get("OPENAI_IMAGE_BASE", "https://api.avalai.ir/v1").rstrip("/")
 OPENAI_IMAGE_MODEL = os.environ.get("OPENAI_IMAGE_MODEL", "cf.flux-2-klein-9b")
+IMAGE_EDIT_BASE = os.environ.get("IMAGE_EDIT_BASE", "http://172.16.20.117:8092").rstrip("/")
 
 VIDEO_PROVIDER = os.environ.get("VIDEO_PROVIDER", "ltx_openai")
 VIDEO_API_BASE = os.environ.get("VIDEO_API_BASE", "http://172.16.20.117:8091").rstrip("/")
