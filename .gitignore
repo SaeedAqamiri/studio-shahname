@@ -1,0 +1,31 @@
+# secrets
+.env
+.env.local
+*.pem
+*.key
+
+# runtime data
+backend/data/
+data/
+backend/studio.log
+*.log
+*.db
+*.sqlite3
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# node
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# binaries (ffmpeg is downloaded, ~170MB)
+bin/
+*.zst
+
+# os
+.DS_Store
