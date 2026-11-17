@@ -30,3 +30,7 @@ bin/
 # os
 .DS_Store
 frontend/tsconfig.tsbuildinfo
+
+# deployment-specific notes and scripts (contain server IPs / secrets)
+docs/ADDRESSES.md
+sync_gallery.sh

@@ -11,6 +11,7 @@ from .. import settings_store
 from ..db import get_db
 from ..models import Asset, Character, Project, Render, Scene, Script, Shot
 from ..providers import get_llm
+from ..services import pacing
 from ..services.assets import asset_url, save_asset
 from ..services.video import probe
 from .. import config
@@ -164,10 +165,11 @@ def delete_scene(scene_id: str, db: Session = Depends(get_db)) -> dict:
 
 
 SYSTEM = (
-    "You are a professional screenwriter for a cinematic Shahnameh film studio. "
+    "You are a professional screenwriter for a cinematic film and animation studio. "
     "Write in Persian unless asked otherwise. Return ONLY valid JSON, no markdown. "
-    "Every scene must be visually filmable in 4-8 seconds: concrete place, time, action, camera mood. "
-    "Keep characters consistent with the provided list."
+    "Respect the project's format, genre, pacing profile and target duration. "
+    "Each scene must be visually filmable: concrete place, time, action, camera mood. "
+    "Keep characters consistent with the provided list. Do not assume the project is Shahnameh unless the brief says so."
 )
 
 
@@ -194,17 +196,28 @@ async def generate_script(script_id: str, body: GenerateIn, db: Session = Depend
     if not treatment.strip():
         raise HTTPException(422, "treatment is empty")
 
+    profile = pacing.get_profile(project.pacing_profile if project else None)
+    target = project.target_duration_sec if project else 600
     style = project.style_bible if project else {}
     char_lines = "\n".join(f"- {c.name} ({c.role or 'character'}): {c.description[:160]}" for c in chars) or "- (none yet)"
+    n = body.scene_count
+    dmin, dmax = profile["scene_duration"]
+    if n < profile["scene_count"][0] and target > dmax * n:
+        n = pacing.scene_count_suggestion(target, profile["id"])
+    brief = pacing.pacing_brief(profile["id"], target)
     user = (
+        f"Project: {project.name if project else ''}\n"
         f"Project style: {json.dumps(style, ensure_ascii=False)}\n"
+        f"Pacing brief: {brief}\n"
         f"Characters:\n{char_lines}\n\n"
         f"Treatment / outline:\n{treatment}\n\n"
-        f"Tone: {body.tone or 'epic, cinematic, grounded'}\n"
-        f"Write exactly {body.scene_count} scenes.\n"
+        f"Tone: {body.tone or 'cinematic, grounded'}\n"
+        f"Write exactly {n} scenes. Each scene duration must be {dmin}-{dmax} seconds; "
+        f"total close to {target} seconds. Use {profile['shots_per_scene'][0]}-{profile['shots_per_scene'][1]} "
+        f"shots per scene, each {profile['shot_duration'][0]}-{profile['shot_duration'][1]} seconds. "
         "Return JSON with this exact schema:\n"
         '{"title": string, "logline": string, "scenes": [{"heading": string, "location": string, '
-        '"time_of_day": string, "summary": string, "action_text": string, '
+        '"time_of_day": string, "summary": string, "action_text": string, "duration_sec": integer, '
         '"dialogue": [{"character": string, "line": string, "emotion": string}], '
         '"cast": [string]}]}'
     )
@@ -229,13 +242,20 @@ async def generate_script(script_id: str, body: GenerateIn, db: Session = Depend
     start = 0 if body.replace else db.query(Scene).filter(Scene.script_id == script_id).count()
     prev = None if body.replace else db.query(Scene).filter(Scene.script_id == script_id).order_by(Scene.index.desc()).first()
     prev_id = prev.id if prev else None
+    avg = (dmin + dmax) / 2
     for i, sc in enumerate(scenes):
+        try:
+            dur = int(round(float(sc.get("duration_sec") or avg)))
+        except Exception:
+            dur = int(round(avg))
+        dur = max(dmin, min(dmax, dur))
         row = Scene(
             script_id=script_id, index=start + i + 1,
             heading=sc.get("heading", ""), location=sc.get("location", ""),
             time_of_day=sc.get("time_of_day", ""), summary=sc.get("summary", ""),
             action_text=sc.get("action_text", ""), dialogue=sc.get("dialogue", []) or [],
-            style_overrides={"cast": sc.get("cast", [])}, prev_scene_id=prev_id,
+            style_overrides={"cast": sc.get("cast", []), "duration_sec": dur,
+                             "pacing_profile": profile["id"]}, prev_scene_id=prev_id,
         )
         db.add(row)
         db.flush()

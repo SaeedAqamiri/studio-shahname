@@ -19,6 +19,11 @@ def _migrate() -> None:
         cols = {r[1] for r in conn.exec_driver_sql("PRAGMA table_info(characters)")}
         if "name_en" not in cols:
             conn.exec_driver_sql("ALTER TABLE characters ADD COLUMN name_en VARCHAR(120) DEFAULT ''")
+        pcols = {r[1] for r in conn.exec_driver_sql("PRAGMA table_info(projects)")}
+        if "pacing_profile" not in pcols:
+            conn.exec_driver_sql("ALTER TABLE projects ADD COLUMN pacing_profile VARCHAR(40) DEFAULT 'epic_historical'")
+        if "target_duration_sec" not in pcols:
+            conn.exec_driver_sql("ALTER TABLE projects ADD COLUMN target_duration_sec INTEGER DEFAULT 600")
 
 
 def init_db() -> None:

@@ -1,5 +1,6 @@
 export type Project = {
   id: string; name: string; description: string; language: string;
+  pacing_profile: string; target_duration_sec: number;
   style_bible: Record<string, string>; created_at: number; updated_at: number;
 };
 export type CharacterImage = {

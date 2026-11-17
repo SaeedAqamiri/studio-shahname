@@ -22,6 +22,8 @@ class ProjectIn(BaseModel):
     name: str = Field(min_length=1, max_length=200)
     description: str = ""
     language: str = "fa"
+    pacing_profile: str = "epic_historical"
+    target_duration_sec: int = Field(default=600, ge=60, le=7200)
     style_bible: dict = Field(default_factory=dict)
 
 
@@ -29,12 +31,15 @@ class ProjectPatch(BaseModel):
     name: str | None = None
     description: str | None = None
     language: str | None = None
+    pacing_profile: str | None = None
+    target_duration_sec: int | None = Field(default=None, ge=60, le=7200)
     style_bible: dict | None = None
 
 
 def project_public(p: Project) -> dict:
     return {
         "id": p.id, "name": p.name, "description": p.description, "language": p.language,
+        "pacing_profile": p.pacing_profile, "target_duration_sec": p.target_duration_sec,
         "style_bible": p.style_bible, "created_at": p.created_at, "updated_at": p.updated_at,
     }
 
@@ -48,6 +53,7 @@ def list_projects(db: Session = Depends(get_db)) -> dict:
 @router.post("")
 def create_project(body: ProjectIn, db: Session = Depends(get_db)) -> dict:
     p = Project(name=body.name, description=body.description, language=body.language,
+                pacing_profile=body.pacing_profile, target_duration_sec=body.target_duration_sec,
                 style_bible=body.style_bible or style_bible(None))
     db.add(p)
     db.commit()
@@ -90,17 +96,19 @@ async def final_cut(project_id: str, body: EditIn, db: Session = Depends(get_db)
     clips = []
     used = []
     for sc in scenes:
-        shot = db.query(Shot).filter(Shot.scene_id == sc.id).order_by(Shot.index).first()
-        if not shot:
-            continue
-        render = (db.query(Render).filter(Render.shot_id == shot.id, Render.status == "succeeded",
-                                          Render.video_asset_id.isnot(None))
-                  .order_by(Render.created_at.desc()).first())
-        if not render:
-            continue
-        asset = db.get(Asset, render.video_asset_id)
-        if asset and Path(asset.path).is_file():
-            clips.append(asset.path)
+        shots = db.query(Shot).filter(Shot.scene_id == sc.id).order_by(Shot.index).all()
+        scene_used = False
+        for shot in shots:
+            render = (db.query(Render).filter(Render.shot_id == shot.id, Render.status == "succeeded",
+                                              Render.video_asset_id.isnot(None))
+                      .order_by(Render.created_at.desc()).first())
+            if not render:
+                continue
+            asset = db.get(Asset, render.video_asset_id)
+            if asset and Path(asset.path).is_file():
+                clips.append(asset.path)
+                scene_used = True
+        if scene_used:
             used.append(sc.index)
     if not clips:
         raise HTTPException(422, "no finished renders to edit")

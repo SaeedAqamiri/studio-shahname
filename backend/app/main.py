@@ -12,6 +12,7 @@ from sqlalchemy.orm import Session
 from . import config, settings_store
 from .db import get_db, init_db
 from .models import Asset
+from .services import pacing
 from .routers import characters, projects, renders, scenes, scripts, settings, voices
 
 app = FastAPI(title="Shahnameh Film Studio", version="0.1.0")
@@ -34,6 +35,11 @@ app.include_router(renders.router)
 @app.on_event("startup")
 def _startup() -> None:
     init_db()
+
+
+@app.get("/api/pacing-profiles")
+def pacing_profiles() -> dict:
+    return {"data": pacing.list_profiles()}
 
 
 @app.get("/api/health")
@@ -63,6 +69,10 @@ def asset_file(asset_id: str, db: Session = Depends(get_db)) -> FileResponse:
         raise HTTPException(404, "asset not found")
     return FileResponse(a.path, media_type=a.mime)
 
+
+gallery = Path(config.DATA) / "gallery"
+gallery.mkdir(parents=True, exist_ok=True)
+app.mount("/gallery", StaticFiles(directory=str(gallery), html=True), name="gallery")
 
 dist = Path(__file__).resolve().parents[2] / "frontend" / "dist"
 if dist.is_dir():

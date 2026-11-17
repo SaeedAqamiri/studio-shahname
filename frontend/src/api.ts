@@ -12,8 +12,12 @@ async function req<T>(url: string, init?: RequestInit): Promise<T> {
 export const api = {
   health: () => req<any>("/api/health"),
   projects: () => req<{ data: any[] }>("/api/projects"),
+  project: (id: string) => req<any>(`/api/projects/${id}`),
   createProject: (body: { name: string; description?: string; style_bible?: any }) =>
     req<any>("/api/projects", { method: "POST", headers: J, body: JSON.stringify(body) }),
+  patchProject: (id: string, body: any) =>
+    req<any>(`/api/projects/${id}`, { method: "PATCH", headers: J, body: JSON.stringify(body) }),
+  pacingProfiles: () => req<{ data: any[] }>("/api/pacing-profiles"),
   characters: (projectId: string) => req<{ data: any[] }>(`/api/projects/${projectId}/characters`),
   createCharacter: (projectId: string, body: any) =>
     req<any>(`/api/projects/${projectId}/characters`, { method: "POST", headers: J, body: JSON.stringify(body) }),

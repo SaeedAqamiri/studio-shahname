@@ -136,7 +136,7 @@ class VideoRequest(BaseModel):
     prompt: str = Field(min_length=1)
     negative: str | None = None
     size: str = Field(default="1280x720", pattern=r"^\d{3,4}x\d{3,4}$")
-    seconds: float = Field(default=4.0, ge=1.0, le=10.0)
+    seconds: float = Field(default=4.0, ge=1.0, le=20.0)
     fps: float = Field(default=24.0, ge=8.0, le=30.0)
     seed: int | None = Field(default=None, ge=0, le=2**31 - 1)
     audio: bool = True

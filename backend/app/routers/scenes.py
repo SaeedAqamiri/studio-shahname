@@ -43,7 +43,7 @@ class ShotIn(BaseModel):
     mode: str = "auto"  # auto | t2v | i2v
     width: int = Field(default=1280, ge=384, le=1536)
     height: int = Field(default=720, ge=384, le=1536)
-    seconds: float = Field(default=4.0, ge=1.0, le=10.0)
+    seconds: float = Field(default=4.0, ge=1.0, le=20.0)
     fps: float = Field(default=24.0, ge=8.0, le=30.0)
     seed: int | None = None
     audio: bool = True

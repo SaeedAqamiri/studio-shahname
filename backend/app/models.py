@@ -37,6 +37,8 @@ class Project(Base, Timestamped):
     name: Mapped[str] = mapped_column(String(200))
     description: Mapped[str] = mapped_column(Text, default="")
     language: Mapped[str] = mapped_column(String(16), default="fa")
+    pacing_profile: Mapped[str] = mapped_column(String(40), default="epic_historical")
+    target_duration_sec: Mapped[int] = mapped_column(Integer, default=600)
     style_bible: Mapped[dict] = mapped_column(JSON, default=dict)
 
     characters: Mapped[list["Character"]] = relationship(back_populates="project", cascade="all, delete-orphan")

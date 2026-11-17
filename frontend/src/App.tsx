@@ -530,24 +530,56 @@ function SettingsView() {
 function ScriptView({ projectId }: { projectId?: string }) {
   const [script, setScript] = useState<any>(null);
   const [scriptList, setScriptList] = useState<any[]>([]);
+  const [project, setProject] = useState<any>(null);
+  const [profiles, setProfiles] = useState<any[]>([]);
   const [treatment, setTreatment] = useState("");
-  const [sceneCount, setSceneCount] = useState(6);
+  const [sceneCount, setSceneCount] = useState(24);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState("");
   const [err, setErr] = useState("");
+
+  const activeProfile = profiles.find((p: any) => p.id === project?.pacing_profile) || profiles[0] || null;
+  const suggestCount = (target: number, profile: any) => {
+    if (!profile) return 24;
+    const avg = (profile.scene_duration[0] + profile.scene_duration[1]) / 2;
+    return Math.max(3, Math.min(40, Math.round((target || 600) / avg)));
+  };
 
   async function loadScript(id: string) {
     const full = await api.getScript(id);
     setScript(full); setTreatment(full.treatment || "");
   }
 
+  async function changeProfile(id: string) {
+    if (!project) return;
+    const p = await api.patchProject(project.id, { pacing_profile: id });
+    setProject(p);
+    setSceneCount(suggestCount(p.target_duration_sec || 600, profiles.find((x: any) => x.id === id)));
+    setMsg("پروفایل ریتم به‌روز شد");
+  }
+
+  async function changeTarget(minutes: number) {
+    if (!project) return;
+    const sec = Math.max(60, Math.min(7200, Math.round((minutes || 10) * 60)));
+    const p = await api.patchProject(project.id, { target_duration_sec: sec });
+    setProject(p);
+    setSceneCount(suggestCount(sec, activeProfile));
+    setMsg("مدت هدف به‌روز شد");
+  }
+
   useEffect(() => {
     (async () => {
       if (!projectId) return;
       try {
-        const list = (await api.scripts(projectId)).data;
-        setScriptList(list);
-        let s = list[0];
+        const [listRes, proj, profRes] = await Promise.all([
+          api.scripts(projectId), api.project(projectId), api.pacingProfiles(),
+        ]);
+        setScriptList(listRes.data);
+        setProject(proj);
+        setProfiles(profRes.data);
+        const active = profRes.data.find((p: any) => p.id === proj.pacing_profile) || profRes.data[0];
+        setSceneCount(suggestCount(proj.target_duration_sec || 600, active));
+        let s = listRes.data[0];
         if (!s) s = await api.createScript(projectId, { title: "سناریوی جدید", treatment: "" });
         await loadScript(s.id);
       } catch (e: any) { setErr(String(e.message || e)); }
@@ -625,13 +657,40 @@ function ScriptView({ projectId }: { projectId?: string }) {
       <div className="panel">
         <div className="grid-2">
           <div>
+            <label>پروفایل ریتم/ژانر</label>
+            <select value={project?.pacing_profile || ""} onChange={(e) => changeProfile(e.target.value)}
+              disabled={!project || !profiles.length}>
+              {profiles.map((p: any) => <option key={p.id} value={p.id}>{p.label}</option>)}
+            </select>
+          </div>
+          <div>
+            <label>مدت هدف (دقیقه)</label>
+            <input type="number" min={1} max={120} value={Math.round((project?.target_duration_sec || 600) / 60)}
+              onChange={(e) => changeTarget(Number(e.target.value))} />
+          </div>
+        </div>
+        {activeProfile && (
+          <p className="hint" style={{ marginTop: 8 }}>
+            {activeProfile.description} — صحنه {activeProfile.scene_duration[0]}–{activeProfile.scene_duration[1]}s،
+            شات {activeProfile.shot_duration[0]}–{activeProfile.shot_duration[1]}s،
+            {activeProfile.shots_per_scene[0]}–{activeProfile.shots_per_scene[1]} شات در صحنه؛
+            پیشنهاد: {suggestCount(project?.target_duration_sec || 600, activeProfile)} صحنه.
+            برای سناریوی جدید اعمال می‌شود.
+          </p>
+        )}
+      </div>
+
+      <div className="panel">
+        <div className="grid-2">
+          <div>
             <label>عنوان</label>
             <input value={script.title || ""} onChange={(e) => setScript({ ...script, title: e.target.value })} />
           </div>
           <div>
             <label>تعداد سکانس</label>
             <select value={sceneCount} onChange={(e) => setSceneCount(Number(e.target.value))}>
-              {[3, 4, 5, 6, 8, 10, 12].map((n) => <option key={n} value={n}>{n}</option>)}
+              {Array.from(new Set([5, 8, 10, 12, 15, 18, 20, 22, 24, 26, 28, 30, sceneCount])).sort((a, b) => a - b)
+                .map((n) => <option key={n} value={n}>{n}</option>)}
             </select>
           </div>
         </div>
@@ -755,7 +814,7 @@ function SceneDetail({ sceneId, characters }: { sceneId: string; characters: any
   const [busy, setBusy] = useState("");
   const [err, setErr] = useState("");
   const [msg, setMsg] = useState("");
-  const [seconds, setSeconds] = useState(4);
+  const [seconds, setSeconds] = useState(10);
   const [audio, setAudio] = useState(true);
   const [render, setRender] = useState<any>(null);
   const [pickChar, setPickChar] = useState("");
@@ -908,7 +967,7 @@ function SceneDetail({ sceneId, characters }: { sceneId: string; characters: any
         <div className="gen-row">
           <div><label>مدت</label>
             <select value={seconds} onChange={(e) => setSeconds(Number(e.target.value))}>
-              {[2, 3, 4, 5, 6].map((n) => <option key={n} value={n}>{n} ثانیه</option>)}
+              {[5, 6, 7, 8, 9, 10, 12, 15].map((n) => <option key={n} value={n}>{n} ثانیه</option>)}
             </select>
           </div>
           <div><label>صدا</label>
