@@ -202,9 +202,15 @@ class DubIn(BaseModel):
     overrides: dict[str, str] = Field(default_factory=dict)
 
 
+GEMINI_TTS_VOICES = ["Kore", "Puck", "Charon", "Fenrir", "Aoede", "Leda", "Orus", "Zephyr"]
+
+
 async def build_narration(db: Session, scene: Scene, overrides: dict[str, str] | None = None) -> tuple[str, list]:
     """Render every dialogue line with the matching character voice and join them."""
-    tts = get_tts(settings_store.section(db, "tts"))
+    cfg = settings_store.section(db, "tts")
+    tts = get_tts(cfg)
+    provider = (cfg.get("provider") or "").lower()
+    default_voice = (cfg.get("default_voice") or "").strip()
     overrides = overrides or {}
     cast = db.query(CastMember).filter(CastMember.scene_id == scene.id).all()
     by_name = {}
@@ -222,7 +228,18 @@ async def build_narration(db: Session, scene: Scene, overrides: dict[str, str] |
         ch = by_name.get(speaker)
         voice = overrides.get(speaker)
         if not voice and ch and ch.voice and ch.voice.voice_id:
-            voice = ch.voice.voice_id
+            vid = ch.voice.voice_id
+            if provider == "openai":
+                # hosted TTS (Gemini) only accepts its own voice names; ignore old
+                # cloned/reference ids such as fish's "char_..." values
+                if vid in GEMINI_TTS_VOICES:
+                    voice = vid
+                elif vid and not vid.startswith("char_"):
+                    voice = vid
+            else:
+                voice = vid
+        if not voice and provider == "openai":
+            voice = default_voice or GEMINI_TTS_VOICES[0]
         raw, ext = await tts.speak(text, voice, "fa")
         f = tmp / f"line_{i}.{ext}"
         f.write_bytes(raw)

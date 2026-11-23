@@ -5,6 +5,7 @@ import subprocess
 from pathlib import Path
 
 from .. import config
+from .video import probe
 
 
 async def _run(cmd: list[str]) -> tuple[int, str]:
@@ -56,9 +57,14 @@ async def dub_video(video: str, narration: str, out: str, duck: float = 0.22) ->
     ndur = await duration(narration)
     pad = max(0.0, ndur - vdur + 0.4)
     target = max(vdur + pad, ndur + 0.4)
+    info = await probe(video)
+    if info.get("has_audio"):
+        bg = f"[0:a]volume={duck},apad=whole_dur={target:.3f}[bg];"
+    else:
+        bg = f"anullsrc=r=48000:cl=stereo,atrim=duration={target:.3f}[bg];"
     filters = (
         f"[0:v]tpad=stop_mode=clone:stop_duration={pad:.3f}[v];"
-        f"[0:a]volume={duck},apad=whole_dur={target:.3f}[bg];"
+        + bg +
         f"[1:a]adelay=120|120,apad=whole_dur={target:.3f}[nar];"
         f"[bg][nar]amix=inputs=2:duration=longest:dropout_transition=0[a]"
     )

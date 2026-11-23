@@ -22,14 +22,17 @@ CATALOG = {
         ],
     },
     "avalai": {
-        "label": "AvalAI / سازگار با OpenAI (نیازمند فعال‌بودن مدل TTS)",
+        "label": "AvalAI — Gemini TTS (فارسی/چندزبانه)",
         "language": "multi",
         "voices": [
-            {"id": "coral", "name": "Coral", "gender": "female"},
-            {"id": "marin", "name": "Marin", "gender": "female"},
-            {"id": "cedar", "name": "Cedar", "gender": "male"},
-            {"id": "onyx", "name": "Onyx", "gender": "male"},
-            {"id": "shimmer", "name": "Shimmer", "gender": "female"},
+            {"id": "Kore", "name": "Kore — زنانه، آرام", "gender": "female"},
+            {"id": "Puck", "name": "Puck — مردانه، پرانرژی", "gender": "male"},
+            {"id": "Charon", "name": "Charon — مردانه، بم", "gender": "male"},
+            {"id": "Fenrir", "name": "Fenrir — مردانه، قوی", "gender": "male"},
+            {"id": "Aoede", "name": "Aoede — زنانه، روشن", "gender": "female"},
+            {"id": "Leda", "name": "Leda — زنانه، جوان", "gender": "female"},
+            {"id": "Orus", "name": "Orus — مردانه، رسمی", "gender": "male"},
+            {"id": "Zephyr", "name": "Zephyr — زنانه، نرم", "gender": "female"},
         ],
     },
     "fish": {

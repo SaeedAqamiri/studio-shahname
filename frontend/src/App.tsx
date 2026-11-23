@@ -179,7 +179,7 @@ function CharacterView({ character, onRefresh, onError, onMessage }: {
   const [nameEn, setNameEn] = useState(character.name_en || "");
   const [app, setApp] = useState<Record<string, string>>(character.appearance || {});
   const [voiceCatalog, setVoiceCatalog] = useState<Record<string, VoiceCatalogEntry>>({});
-  const [voiceProvider, setVoiceProvider] = useState(character.voice?.provider || "piper");
+  const [voiceProvider, setVoiceProvider] = useState(character.voice?.provider || "avalai");
   const [voiceId, setVoiceId] = useState(character.voice?.voice_id || "");
   const [cloneFile, setCloneFile] = useState<File | null>(null);
   const [cloneText, setCloneText] = useState("");
@@ -1167,6 +1167,16 @@ function RenderView({ projectId }: { projectId?: string }) {
   const [final, setFinal] = useState<any>(null);
   const [exported, setExported] = useState<any>(null);
   const [busy, setBusy] = useState(false);
+  const [scripts, setScripts] = useState<any[]>([]);
+  const [scriptId, setScriptId] = useState("");
+  useEffect(() => {
+    if (!projectId) return;
+    api.scripts(projectId).then((r) => {
+      const list = [...(r.data || [])].sort((a, b) => ((a.meta?.film_no ?? 0) - (b.meta?.film_no ?? 0)));
+      setScripts(list);
+      if (!scriptId && list.length) setScriptId(list[list.length - 1].id);
+    }).catch((e) => setErr(String(e.message || e)));
+  }, [projectId]);
   useEffect(() => {
     let alive = true;
     async function tick() {
@@ -1191,18 +1201,28 @@ function RenderView({ projectId }: { projectId?: string }) {
     <div>
       <div className="char-head">
         <div><h2>رندرها</h2><p className="muted">همهٔ ویدیوهای ساخته‌شده و در صف.</p></div>
-        <button className="btn primary" disabled={busy || !projectId} onClick={async () => {
-          setBusy(true); setErr("");
-          try { setFinal(await api.finalCut(projectId!, {})); }
-          catch (e: any) { setErr(String(e.message || e)); }
-          finally { setBusy(false); }
-        }}>{busy ? "در حال تدوین…" : "تدوین نهایی صحنه‌ها"}</button>
+        <div className="row" style={{ alignItems: "flex-end" }}>
+          <div style={{ maxWidth: 260 }}>
+            <label>فیلم</label>
+            <select value={scriptId} onChange={(e) => setScriptId(e.target.value)}>
+              {scripts.map((s: any, i: number) => (
+                <option key={s.id} value={s.id}>{`فیلم ${s.meta?.film_no ?? i + 1} — ${s.title}`}</option>
+              ))}
+            </select>
+          </div>
+          <button className="btn primary" disabled={busy || !projectId || !scriptId} onClick={async () => {
+            setBusy(true); setErr("");
+            try { setFinal(await api.finalCut(projectId!, { script_id: scriptId })); }
+            catch (e: any) { setErr(String(e.message || e)); }
+            finally { setBusy(false); }
+          }}>{busy ? "در حال تدوین…" : "تدوین نهایی صحنه‌ها"}</button>
+        </div>
       </div>
       <div className="panel" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
         <div><strong>نسخهٔ کامل با دوبله و زیرنویس</strong><p className="hint" style={{ margin: "4px 0 0" }}>دیالوگ‌ها با صدای کاراکترها خوانده و روی ویدیو میکس می‌شوند؛ SRT هم ساخته می‌شود.</p></div>
-        <button className="btn primary" disabled={busy || !projectId} onClick={async () => {
+        <button className="btn primary" disabled={busy || !projectId || !scriptId} onClick={async () => {
           setBusy(true); setErr("");
-          try { setExported(await api.exportAV(projectId!, {})); }
+          try { setExported(await api.exportAV(projectId!, { script_id: scriptId })); }
           catch (e: any) { setErr(String(e.message || e)); }
           finally { setBusy(false); }
         }}>{busy ? "…" : "تدوین با صدا و زیرنویس"}</button>

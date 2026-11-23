@@ -142,18 +142,24 @@ async def export_av(project_id: str, body: EditIn, db: Session = Depends(get_db)
     tmp = Path(tempfile.mkdtemp(prefix="export_"))
     clips, used = [], []
     for sc in scenes:
-        shot = db.query(Shot).filter(Shot.scene_id == sc.id).order_by(Shot.index).first()
-        if not shot:
+        shots = db.query(Shot).filter(Shot.scene_id == sc.id).order_by(Shot.index).all()
+        scene_clips = []
+        for shot in shots:
+            render = (db.query(Render).filter(Render.shot_id == shot.id, Render.status == "succeeded",
+                                              Render.video_asset_id.isnot(None))
+                      .order_by(Render.created_at.desc()).first())
+            if not render:
+                continue
+            asset = db.get(Asset, render.video_asset_id)
+            if asset and Path(asset.path).is_file():
+                scene_clips.append(asset.path)
+        if not scene_clips:
             continue
-        render = (db.query(Render).filter(Render.shot_id == shot.id, Render.status == "succeeded",
-                                          Render.video_asset_id.isnot(None))
-                  .order_by(Render.created_at.desc()).first())
-        if not render:
-            continue
-        asset = db.get(Asset, render.video_asset_id)
-        if not asset or not Path(asset.path).is_file():
-            continue
-        clip = asset.path
+        if len(scene_clips) == 1:
+            clip = scene_clips[0]
+        else:
+            clip = str(tmp / f"scene_{sc.index}_raw.mp4")
+            await concat(scene_clips, clip)
         narration, lines = await build_narration(db, sc)
         if narration:
             out = str(tmp / f"scene_{sc.index}.mp4")

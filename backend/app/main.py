@@ -76,4 +76,11 @@ app.mount("/gallery", StaticFiles(directory=str(gallery), html=True), name="gall
 
 dist = Path(__file__).resolve().parents[2] / "frontend" / "dist"
 if dist.is_dir():
+    @app.get("/", include_in_schema=False)
+    def index() -> FileResponse:
+        page = dist / "index.html"
+        if not page.is_file():
+            raise HTTPException(404, "ui not built")
+        return FileResponse(page, headers={"Cache-Control": "no-cache, must-revalidate"})
+
     app.mount("/", StaticFiles(directory=str(dist), html=True), name="ui")
