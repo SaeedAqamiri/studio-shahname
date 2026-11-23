@@ -27,8 +27,8 @@ from fastapi.responses import JSONResponse
 from PIL import Image
 
 COMFY_URL = os.environ.get("COMFY_URL", "http://127.0.0.1:8188").rstrip("/")
-COMFY_INPUT = Path(os.environ.get("COMFY_INPUT_DIR", "/home/ava/flux3-klein/comfy_input"))
-COMFY_OUTPUT = Path(os.environ.get("COMFY_OUTPUT_DIR", "/home/ava/flux3-klein/comfy_output"))
+COMFY_INPUT = Path(os.environ.get("COMFY_INPUT_DIR", "/home/ava/saeed/flux3-klein/comfy_input"))
+COMFY_OUTPUT = Path(os.environ.get("COMFY_OUTPUT_DIR", "/home/ava/saeed/flux3-klein/comfy_output"))
 HOST = os.environ.get("HOST", "0.0.0.0")
 PORT = int(os.environ.get("PORT", "8092"))
 

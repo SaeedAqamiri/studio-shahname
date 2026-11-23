@@ -169,6 +169,8 @@ SYSTEM = (
     "Write in Persian unless asked otherwise. Return ONLY valid JSON, no markdown. "
     "Respect the project's format, genre, pacing profile and target duration. "
     "Each scene must be visually filmable: concrete place, time, action, camera mood. "
+    "Do NOT specify exact durations, seconds, timecodes or numbers like '25s' in the screenplay text; "
+    "write approximate narrative beats instead. The studio assigns exact render durations later. "
     "Keep characters consistent with the provided list. Do not assume the project is Shahnameh unless the brief says so."
 )
 
@@ -183,6 +185,13 @@ def _parse_json(text: str) -> dict:
         if m:
             return json.loads(m.group(0))
         raise
+
+
+def _clean_heading(text: str) -> str:
+    text = text or ""
+    text = re.sub(r"[\(\[\|–—-]?\s*(?:حدود|حدوداً|تقریباً|تقریبا)?\s*\d+\s*ثانیه(?:ای)?\s*[\)\]]?", " ", text)
+    text = re.sub(r"[\(\[\|–—-]?\s*(?:about|approximately|approx\.?|~)?\s*\d+\s*(?:s|sec|secs|seconds)\b\s*[\)\]]?", " ", text, flags=re.I)
+    return re.sub(r"\s{2,}", " ", text).strip(" -|–—:")
 
 
 @router.post("/api/scripts/{script_id}/generate")
@@ -212,18 +221,22 @@ async def generate_script(script_id: str, body: GenerateIn, db: Session = Depend
         f"Characters:\n{char_lines}\n\n"
         f"Treatment / outline:\n{treatment}\n\n"
         f"Tone: {body.tone or 'cinematic, grounded'}\n"
-        f"Write exactly {n} scenes. Each scene duration must be {dmin}-{dmax} seconds; "
-        f"total close to {target} seconds. Use {profile['shots_per_scene'][0]}-{profile['shots_per_scene'][1]} "
-        f"shots per scene, each {profile['shot_duration'][0]}-{profile['shot_duration'][1]} seconds. "
+        f"Write exactly {n} scenes. The whole film is roughly {target} seconds. "
+        f"Think in narrative beats, not clock time: do NOT write seconds, durations or timecodes in the heading, "
+        f"summary or action. Instead give each scene a relative pace: short, medium or long. "
+        f"(The studio plans approx. {dmin}-{dmax}s per scene and "
+        f"{profile['shots_per_scene'][0]}-{profile['shots_per_scene'][1]} shots per scene later.) "
+        "Keep it compact: summary <= 25 words, action_text <= 45 words, at most 2 dialogue lines per scene. "
         "Return JSON with this exact schema:\n"
         '{"title": string, "logline": string, "scenes": [{"heading": string, "location": string, '
-        '"time_of_day": string, "summary": string, "action_text": string, "duration_sec": integer, '
+        '"time_of_day": string, "summary": string, "action_text": string, '
+        '"pace": "short" | "medium" | "long", '
         '"dialogue": [{"character": string, "line": string, "emotion": string}], '
         '"cast": [string]}]}'
     )
     llm = get_llm(settings_store.section(db, "llm"))
     raw = await llm.chat([{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}],
-                        temperature=0.8, json_mode=True, max_tokens=6000)
+                        temperature=0.8, json_mode=True, max_tokens=20000)
     try:
         data = _parse_json(raw)
     except Exception:
@@ -243,19 +256,34 @@ async def generate_script(script_id: str, body: GenerateIn, db: Session = Depend
     prev = None if body.replace else db.query(Scene).filter(Scene.script_id == script_id).order_by(Scene.index.desc()).first()
     prev_id = prev.id if prev else None
     avg = (dmin + dmax) / 2
+
+    def _pace_duration(pace: str) -> float:
+        p = (pace or "").strip().lower()
+        if p in ("short", "brief", "کوتاه"):
+            return dmin + (dmax - dmin) * 0.25
+        if p in ("long", "extended", "بلند"):
+            return dmin + (dmax - dmin) * 0.75
+        return avg
+
     for i, sc in enumerate(scenes):
-        try:
-            dur = int(round(float(sc.get("duration_sec") or avg)))
-        except Exception:
-            dur = int(round(avg))
-        dur = max(dmin, min(dmax, dur))
+        pace = (sc.get("pace") or "").strip().lower()
+        if sc.get("duration_sec") is not None:  # backward compatibility
+            try:
+                dur = float(sc.get("duration_sec"))
+            except Exception:
+                dur = _pace_duration(pace)
+        else:
+            dur = _pace_duration(pace)
+        dur = max(dmin, min(dmax, int(round(dur))))
+        heading = _clean_heading(sc.get("heading", "")) or f"صحنه {start + i + 1}"
         row = Scene(
             script_id=script_id, index=start + i + 1,
-            heading=sc.get("heading", ""), location=sc.get("location", ""),
+            heading=heading, location=sc.get("location", ""),
             time_of_day=sc.get("time_of_day", ""), summary=sc.get("summary", ""),
             action_text=sc.get("action_text", ""), dialogue=sc.get("dialogue", []) or [],
             style_overrides={"cast": sc.get("cast", []), "duration_sec": dur,
-                             "pacing_profile": profile["id"]}, prev_scene_id=prev_id,
+                             "pacing_profile": profile["id"], "pace": pace or "medium"},
+            prev_scene_id=prev_id,
         )
         db.add(row)
         db.flush()

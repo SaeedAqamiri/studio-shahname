@@ -2,7 +2,8 @@
 """Unattended Shahnameh film pipeline.
 
 Phase A: compile a visual prompt per scene and render one look frame.
-Phase B: split every scene into 2-3 LTX shots and submit them to the video queue.
+Phase B: split every scene into 2-3 LTX shots; submit the first, then chain each next shot
+         from the last frame of the previous shot (true i2v continuity).
 Phase C: poll renders, save every clip, and build the final cut per film.
 Everything is mirrored into data/gallery/ and served at /gallery/.
 """
@@ -108,7 +109,13 @@ def compile_prompt(scene: dict) -> dict:
     for attempt in range(3):
         try:
             r = api(f"/api/scenes/{scene['id']}/compile", method="POST", body={}, timeout=180)
-            return {"visual_prompt": r.get("visual_prompt", ""), "negative": r.get("negative", "")}
+            return {
+                "visual_prompt": r.get("visual_prompt", ""),
+                "keyframe_prompt": r.get("keyframe_prompt", r.get("visual_prompt", "")),
+                "video_prompt": r.get("video_prompt", ""),
+                "negative": r.get("negative", ""),
+                "video_negative": r.get("video_negative", ""),
+            }
         except Exception as e:
             log(f"COMPILE FAIL scene {scene.get('index')} attempt {attempt+1}: {e}")
             time.sleep(2 + attempt * 3)
@@ -118,7 +125,7 @@ def compile_prompt(scene: dict) -> dict:
 def build_prompt(film: dict, scene: dict, profile_id: str) -> str:
     ov = scene.get("style_overrides") or {}
     style_note = pacing.get_profile(profile_id)["style_note"]
-    vp = ov.get("visual_prompt") or ""
+    vp = ov.get("keyframe_prompt") or ov.get("visual_prompt") or ""
     if not vp:
         cast = ", ".join((ov.get("cast") or []))
         vp = (f"{scene.get('heading','')}. {scene.get('location','')}. {scene.get('time_of_day','')}. "
@@ -146,8 +153,8 @@ def ensure_shots(db, film: dict, scene: Scene, look_id: str | None, profile_id: 
         return existing
     profile = pacing.get_profile(profile_id)
     ov = scene.style_overrides or {}
-    base_prompt = ov.get("visual_prompt") or scene.summary or scene.heading
-    negative = (ov.get("negative") or "") + ", " + profile["negative_note"]
+    base_prompt = ov.get("video_prompt") or ov.get("visual_prompt") or scene.summary or scene.heading
+    negative = (ov.get("video_negative") or ov.get("negative") or "") + ", " + profile["negative_note"]
     dur = int(round(float(ov.get("duration_sec") or 25)))
     parts = pacing.split_scene(dur, profile_id)
     cast_snapshot = [{"character_id": c.character_id, "variant_id": c.variant_id}
@@ -188,6 +195,36 @@ def submit_pending(db, shot: Shot) -> bool:
     except Exception as e:
         log(f"SUBMIT FAIL shot {sid}: {e}")
         return False
+
+
+def advance_chains(db, films: list[dict]) -> int:
+    """When a shot finishes, start the next shot in the scene from its last frame."""
+    submitted = 0
+    for f in films:
+        n = f["meta"].get("film_no")
+        scenes = db.query(Scene).filter(Scene.script_id == f["id"]).order_by(Scene.index).all()
+        for sc in scenes:
+            shots = db.query(Shot).filter(Shot.scene_id == sc.id).order_by(Shot.index).all()
+            for prev, nxt in zip(shots, shots[1:]):
+                # already rendered / queued / failed (retry loop handles failures)
+                if db.query(Render).filter(Render.shot_id == nxt.id).count() > 0:
+                    continue
+                prev_render = (db.query(Render)
+                               .filter(Render.shot_id == prev.id, Render.status == "succeeded",
+                                       Render.video_asset_id.isnot(None))
+                               .order_by(Render.created_at.desc()).first())
+                if not prev_render:
+                    continue
+                try:
+                    if not nxt.first_frame_id:
+                        api(f"/api/shots/{nxt.id}/chain", method="POST", body={}, timeout=240)
+                    api(f"/api/shots/{nxt.id}/render", method="POST", body={}, timeout=60)
+                    submitted += 1
+                    log(f"CHAIN film {n} scene {sc.index} shot {nxt.index} <- shot {prev.index}")
+                except Exception as e:
+                    log(f"CHAIN FAIL film {n} scene {sc.index} shot {nxt.index}: {e}")
+            db.rollback()
+    return submitted
 
 
 def poll_once(db, shot_meta: dict) -> tuple[int, int]:
@@ -364,9 +401,10 @@ def main() -> None:
                 for sh in shots:
                     sid, shi = sh.id, sh.index
                     shot_meta[sid] = (n, scene.index, shi)
-                    submit_pending(db, sh)
+                    if sh.index == 1:
+                        submit_pending(db, sh)
         db.commit()
-    log(f"SUBMITTED shots={len(shot_meta)}")
+    log(f"QUEUED first shots; total shots={len(shot_meta)} (the rest will be chained)")
 
     # Phase C: poll, copy, finalize
     write_status(films, "rendering")
@@ -377,6 +415,7 @@ def main() -> None:
         total = done = failed = 0
         with SessionLocal() as db:
             poll_once(db, shot_meta)
+            advance_chains(db, films)
             for f in films:
                 counts = render_counts(db, f["id"])
                 if counts["done"] + counts["failed"] >= counts["total"] and counts["total"] > 0:

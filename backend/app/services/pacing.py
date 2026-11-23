@@ -212,7 +212,8 @@ def pacing_brief(profile_id: str | None = None, target_seconds: int = 600) -> st
     p = get_profile(profile_id)
     return (
         f"Format: {p['format']}; genre: {p['genre']}. "
-        f"Narrative scene length: {p['scene_duration'][0]}-{p['scene_duration'][1]} seconds; "
+        f"Narrative scene length (planning estimate, approximate): {p['scene_duration'][0]}-{p['scene_duration'][1]} seconds; "
+        f"Do not put seconds or timecodes in the screenplay text; use short/medium/long pace hints; "
         f"scene count for a {target_seconds}s film: about {scene_count_suggestion(target_seconds, p['id'])}. "
         f"Shots per scene: {p['shots_per_scene'][0]}-{p['shots_per_scene'][1]}; "
         f"shot length: {p['shot_duration'][0]}-{p['shot_duration'][1]} seconds (average {p['avg_shot']}s). "
