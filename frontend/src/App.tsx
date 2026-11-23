@@ -814,32 +814,49 @@ function SceneDetail({ sceneId, characters }: { sceneId: string; characters: any
   const [busy, setBusy] = useState("");
   const [err, setErr] = useState("");
   const [msg, setMsg] = useState("");
-  const [seconds, setSeconds] = useState(10);
   const [audio, setAudio] = useState(true);
-  const [render, setRender] = useState<any>(null);
   const [pickChar, setPickChar] = useState("");
-  const [prevFrame, setPrevFrame] = useState<any>(null);
   const [narration, setNarration] = useState<any>(null);
+  const [shots, setShots] = useState<any[]>([]);
+  const [renders, setRenders] = useState<Record<string, any>>({});
+  const [proposal, setProposal] = useState<any[] | null>(null);
+  const [replaceAll, setReplaceAll] = useState(false);
+  const [maskShot, setMaskShot] = useState<any>(null);
+  const [shotBusy, setShotBusy] = useState("");
 
   async function load() {
     const d = await api.scene(sceneId);
     setSc(d); setVisual(d.visual_prompt || "");
-    if (d.shots?.[0]) {
-      const rs = (await api.renders()).data.filter((r: any) => r.shot_id === d.shots[0].id);
-      setRender(rs[0] || null);
-    } else setRender(null);
+    const list = d.shots || [];
+    setShots(list);
+    const map: Record<string, any> = {};
+    for (const s of list) if (s.last_render) map[s.id] = s.last_render;
+    setRenders(map);
   }
   useEffect(() => { load().catch((e) => setErr(String(e.message || e))); }, [sceneId]);
 
+  const activeIds = Object.values(renders)
+    .filter((r: any) => ["queued", "running"].includes(r.status))
+    .map((r: any) => r.id).join(",");
+
   useEffect(() => {
-    if (!render || !["queued", "running"].includes(render.status)) return;
+    if (!activeIds) return;
     const t = setInterval(async () => {
-      const r = await api.render(render.id);
-      setRender(r);
-      if (["succeeded", "failed", "cancelled"].includes(r.status)) clearInterval(t);
+      try {
+        const ids = activeIds.split(",");
+        const upd = await Promise.all(ids.map(async (id) => {
+          try { return await api.render(id); } catch { return null; }
+        }));
+        setRenders((prev) => {
+          const next = { ...prev };
+          for (const r of upd) if (r) next[r.shot_id] = r;
+          return next;
+        });
+        if (upd.some((r: any) => r && !["queued", "running"].includes(r.status))) await load();
+      } catch { /* ignore */ }
     }, 4000);
     return () => clearInterval(t);
-  }, [render?.id, render?.status]);
+  }, [activeIds]);
 
   if (!sc) return <div className="placeholder small">…</div>;
 
@@ -864,29 +881,91 @@ function SceneDetail({ sceneId, characters }: { sceneId: string; characters: any
     } catch (e: any) { setErr(String(e.message || e)); } finally { setBusy(""); }
   }
 
-  async function usePrev() {
-    setBusy("prev"); setErr(""); setMsg("");
-    try {
-      const pf = await api.prevFrame(sc.id);
-      setPrevFrame(pf);
-      setMsg(`فریم آخر صحنهٔ ${pf.from_scene_index} برداشته شد — ویدیو از همان ادامه پیدا می‌کند.`);
-    } catch (e: any) { setErr(String(e.message || e)); } finally { setBusy(""); }
-  }
-
   async function doDub() {
     setBusy("dub"); setErr(""); setMsg("");
     try { const r = await api.dubScene(sc.id); setNarration(r); setMsg(`دوبلهٔ ${r.lines} خط ساخته شد`); }
     catch (e: any) { setErr(String(e.message || e)); } finally { setBusy(""); }
   }
 
-  async function doRender() {
-    setBusy("render"); setErr(""); setMsg("");
+  function patchShot(id: string, patch: any) {
+    setShots((prev) => prev.map((s) => (s.id === id ? { ...s, ...patch } : s)));
+  }
+
+  async function saveShot(shot: any) {
+    setShotBusy(shot.id + ":save"); setErr("");
     try {
-      const shot = await api.upsertShot(sc.id, { prompt: visual, width: 1280, height: 720, seconds, audio,
-        first_frame_asset_id: prevFrame?.asset_id || null });
-      const r = await api.startRender(shot.id, {});
-      setRender(r); setMsg("رندر شروع شد");
+      await api.upsertShot(sc.id, { index: shot.index, prompt: shot.prompt, seconds: Number(shot.seconds), width: 1280, height: 720, audio });
+      await load(); setMsg(`شات ${shot.index} ذخیره شد`);
+    } catch (e: any) { setErr(String(e.message || e)); } finally { setShotBusy(""); }
+  }
+
+  async function propose() {
+    setBusy("propose"); setErr(""); setMsg("");
+    try { const r = await api.proposeShots(sc.id, {}); setProposal(r.data || []); setReplaceAll(false); }
+    catch (e: any) { setErr(String(e.message || e)); } finally { setBusy(""); }
+  }
+
+  function patchProposal(i: number, patch: any) {
+    setProposal((prev) => prev ? prev.map((x, idx) => (idx === i ? { ...x, ...patch } : x)) : prev);
+  }
+
+  async function applyProposal() {
+    if (!proposal) return;
+    if (replaceAll && !confirm("همهٔ شات‌های فعلی و رندرهایشان حذف شوند؟")) return;
+    setBusy("apply"); setErr("");
+    try {
+      const d = await api.applyShots(sc.id, { shots: proposal, replace: replaceAll });
+      setSc(d); setShots(d.shots || []); setProposal(null);
+      setMsg(`${(d.shots || []).length} شات ذخیره شد`);
     } catch (e: any) { setErr(String(e.message || e)); } finally { setBusy(""); }
+  }
+
+  async function addShot() {
+    setBusy("add"); setErr("");
+    try {
+      const idx = shots.reduce((m, s) => Math.max(m, s.index), 0) + 1;
+      await api.upsertShot(sc.id, { index: idx, seconds: 10, prompt: "" });
+      await load();
+    } catch (e: any) { setErr(String(e.message || e)); } finally { setBusy(""); }
+  }
+
+  async function removeShot(shot: any) {
+    if (!confirm(`شات ${shot.index} حذف شود؟ رندرهای آن هم حذف می‌شوند.`)) return;
+    setShotBusy(shot.id + ":del"); setErr("");
+    try { const d = await api.deleteShot(shot.id); setSc(d); setShots(d.shots || []); }
+    catch (e: any) { setErr(String(e.message || e)); } finally { setShotBusy(""); }
+  }
+
+  async function chainShot(shot: any) {
+    setShotBusy(shot.id + ":chain"); setErr(""); setMsg("");
+    try {
+      await api.chainShot(shot.id); await load();
+      setMsg(`فریم اول شات ${shot.index} از فریم آخر شات ${shot.index - 1} ساخته شد`);
+    } catch (e: any) { setErr(String(e.message || e)); } finally { setShotBusy(""); }
+  }
+
+  async function renderShot(shot: any) {
+    setShotBusy(shot.id + ":render"); setErr(""); setMsg("");
+    try {
+      await api.upsertShot(sc.id, { index: shot.index, prompt: shot.prompt, seconds: Number(shot.seconds), width: 1280, height: 720, audio });
+      const r = await api.startRender(shot.id, {});
+      setRenders((prev) => ({ ...prev, [shot.id]: r }));
+      setMsg(`رندر شات ${shot.index} شروع شد`);
+    } catch (e: any) { setErr(String(e.message || e)); } finally { setShotBusy(""); }
+  }
+
+  async function cancelShot(shot: any) {
+    const r = renders[shot.id];
+    if (!r) return;
+    try { const x = await api.cancelRender(r.id); setRenders((p) => ({ ...p, [shot.id]: x })); }
+    catch (e: any) { setErr(String(e.message || e)); }
+  }
+
+  async function applyInpaint(mask: string, prompt: string) {
+    if (!maskShot) return;
+    await api.inpaintShot(maskShot.id, { mask, prompt, denoise: 0.9 });
+    await load();
+    await renderShot(maskShot);
   }
 
   return (
@@ -955,41 +1034,129 @@ function SceneDetail({ sceneId, characters }: { sceneId: string; characters: any
       </div>
 
       <div className="panel">
-        <h3>انیمیت (LTX-2.5)</h3>
-        {sc.prev_scene_id && (
-          <div className="row" style={{ marginBottom: 10 }}>
-            <button className="btn ghost" onClick={usePrev} disabled={busy === "prev"}>
-              {busy === "prev" ? "…" : "پیوستگی از صحنهٔ قبل"}
+        <div className="row" style={{ justifyContent: "space-between", alignItems: "center" }}>
+          <div>
+            <h3 style={{ margin: 0 }}>شات‌ها</h3>
+            <p className="hint" style={{ margin: "4px 0 0" }}>
+              فریم اول شات ۱ از فریم نگاه است؛ از شات ۲ به بعد از فریم آخر شات قبلی شروع می‌شود.
+            </p>
+          </div>
+          <div className="row">
+            <button className="btn" onClick={propose} disabled={busy === "propose"}>
+              {busy === "propose" ? "…" : "پیشنهاد شات با AI"}
             </button>
-            {prevFrame && <span className="chip">ادامه از صحنهٔ {prevFrame.from_scene_index} <img src={prevFrame.url} alt="" /></span>}
+            <button className="btn ghost" onClick={addShot} disabled={busy === "add"}>+ شات</button>
           </div>
-        )}
-        <div className="gen-row">
-          <div><label>مدت</label>
-            <select value={seconds} onChange={(e) => setSeconds(Number(e.target.value))}>
-              {[5, 6, 7, 8, 9, 10, 12, 15].map((n) => <option key={n} value={n}>{n} ثانیه</option>)}
-            </select>
-          </div>
-          <div><label>صدا</label>
-            <select value={audio ? "1" : "0"} onChange={(e) => setAudio(e.target.value === "1")}>
-              <option value="1">با صدا</option><option value="0">بدون صدا</option>
-            </select>
-          </div>
-          <button className="btn primary" onClick={doRender} disabled={busy === "render" || !sc.look_frame_url}>
-            {busy === "render" ? "…" : "ساخت ویدیو (i2v)"}
-          </button>
         </div>
-        {!sc.look_frame_url && <p className="hint">اول فریم نگاه را بساز؛ ویدیو از همان شروع می‌شود.</p>}
-        {render && (
-          <div className="render-box">
-            <div className="row"><span className={`test ${render.status === "succeeded" ? "ok" : "bad"}`}>{render.status}</span>
-              {["queued", "running"].includes(render.status) && <button className="link danger" onClick={async () => setRender(await api.cancelRender(render.id))}>لغو</button>}
+
+        {proposal && (
+          <div style={{ marginTop: 12, padding: 12, border: "1px solid rgba(255,255,255,.12)", borderRadius: 12 }}>
+            <div className="row" style={{ justifyContent: "space-between", flexWrap: "wrap" }}>
+              <strong>پیشنهاد AI — {proposal.length} شات</strong>
+              <label className="hint">
+                <input type="checkbox" checked={replaceAll} onChange={(e) => setReplaceAll(e.target.checked)} />{" "}
+                جایگزینی شات‌های فعلی
+              </label>
             </div>
-            {render.video_url && <video src={render.video_url} controls playsInline />}
-            {render.error && <p className="hint">{render.error}</p>}
+            {proposal.map((it, i) => (
+              <div key={i} style={{ marginTop: 10 }}>
+                <div className="row">
+                  <span className="chip">شات {i + 1} · {it.kind || "medium"}</span>
+                  <select value={it.seconds} style={{ maxWidth: 90 }}
+                    onChange={(e) => patchProposal(i, { seconds: Number(e.target.value) })}>
+                    {[3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20].map((n) => <option key={n} value={n}>{n}s</option>)}
+                  </select>
+                </div>
+                <textarea rows={3} dir="ltr" value={it.prompt || ""}
+                  onChange={(e) => patchProposal(i, { prompt: e.target.value })} style={{ marginTop: 6 }} />
+              </div>
+            ))}
+            <div className="row" style={{ marginTop: 10, flexWrap: "wrap" }}>
+              <button className="btn primary" onClick={applyProposal} disabled={busy === "apply"}>
+                {busy === "apply" ? "…" : "اعمال پیشنهاد"}
+              </button>
+              <button className="btn ghost" onClick={() => setProposal(null)}>انصراف</button>
+              {replaceAll && <span className="hint">رندرهای شات‌های فعلی حذف می‌شوند.</span>}
+            </div>
           </div>
         )}
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: 12, marginTop: 12 }}>
+          {shots.map((shot) => {
+            const r = renders[shot.id];
+            const prevRender = shots.find((x) => x.index === shot.index - 1)
+              ? renders[shots.find((x) => x.index === shot.index - 1)!.id] : null;
+            return (
+              <div className="panel" key={shot.id} style={{ margin: 0 }}>
+                <div className="row" style={{ justifyContent: "space-between" }}>
+                  <strong>شات {shot.index}</strong>
+                  <span className={`test ${r?.status === "succeeded" ? "ok" : "bad"}`}>{r?.status || shot.status || "draft"}</span>
+                </div>
+                <textarea rows={4} dir="ltr" value={shot.prompt || ""}
+                  onChange={(e) => patchShot(shot.id, { prompt: e.target.value })}
+                  placeholder="English motion prompt…" style={{ marginTop: 8 }} />
+                <div className="row" style={{ marginTop: 8, flexWrap: "wrap" }}>
+                  <div style={{ maxWidth: 100 }}>
+                    <label>مدت</label>
+                    <select value={shot.seconds} onChange={(e) => patchShot(shot.id, { seconds: Number(e.target.value) })}>
+                      {[3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20].map((n) => <option key={n} value={n}>{n}s</option>)}
+                    </select>
+                  </div>
+                  <button className="link" onClick={() => saveShot(shot)} disabled={shotBusy === shot.id + ":save"}>ذخیره</button>
+                  <button className="link danger" onClick={() => removeShot(shot)} disabled={shotBusy === shot.id + ":del"}>حذف</button>
+                </div>
+                <div style={{ marginTop: 10 }}>
+                  <label>فریم اول</label>
+                  {shot.first_frame_url
+                    ? <div className="look-wrap" style={{ marginTop: 6 }}><img src={shot.first_frame_url} alt="" /></div>
+                    : <p className="hint">{shot.index === 1 ? "با ساخت فریم نگاه صحنه ساخته می‌شود." : "هنوز فریمی ندارد؛ با پیوستگی ساخته می‌شود."}</p>}
+                  <div className="row" style={{ marginTop: 8, flexWrap: "wrap" }}>
+                    {shot.index > 1 && (
+                      <button className="btn ghost" onClick={() => chainShot(shot)} disabled={shotBusy === shot.id + ":chain"}>
+                        {shotBusy === shot.id + ":chain" ? "…" : "پیوستگی از شات قبل"}
+                      </button>
+                    )}
+                    {shot.first_frame_url && shot.index > 1 && (
+                      <button className="btn ghost" onClick={() => setMaskShot(shot)}>ویرایش ناحیه‌ای</button>
+                    )}
+                    {shot.first_frame_manual && <span className="chip">فریم دستی</span>}
+                    {shot.index > 1 && prevRender?.status === "succeeded" && !shot.first_frame_manual && !shot.first_frame_url && (
+                      <span className="hint">آمادهٔ پیوستگی خودکار</span>
+                    )}
+                  </div>
+                </div>
+                <div className="row" style={{ marginTop: 10, flexWrap: "wrap" }}>
+                  <button className="btn primary" onClick={() => renderShot(shot)}
+                    disabled={shotBusy === shot.id + ":render" || (shot.index === 1 && !sc.look_frame_url)}>
+                    {shotBusy === shot.id + ":render" ? "…" : "ساخت ویدیو"}
+                  </button>
+                  {r && ["queued", "running"].includes(r.status) && (
+                    <button className="link danger" onClick={() => cancelShot(shot)}>لغو</button>
+                  )}
+                </div>
+                {r?.status === "failed" && r.error && <p className="hint" style={{ color: "#f0b4b4" }}>{r.error}</p>}
+                {r?.video_url && <video src={r.video_url} controls playsInline style={{ width: "100%", borderRadius: 10, marginTop: 10 }} />}
+              </div>
+            );
+          })}
+          {!shots.length && <p className="placeholder small">هنوز شاتی برای این صحنه ساخته نشده؛ اول «پیشنهاد شات با AI» را بزن.</p>}
+        </div>
+        <p className="hint" style={{ marginTop: 10 }}>
+          صدا: {audio ? "با صدا" : "بدون صدا"} —{" "}
+          <button className="link" onClick={() => setAudio(!audio)}>تغییر</button>
+        </p>
       </div>
+
+      {maskShot && (
+        <MaskEditor
+          image={{ url: maskShot.first_frame_url }}
+          title={`ویرایش ناحیه‌ای فریم اول شات ${maskShot.index}`}
+          onClose={() => setMaskShot(null)}
+          onDone={() => setMaskShot(null)}
+          onError={setErr}
+          onApply={applyInpaint}
+        />
+      )}
     </div>
   );
 }
@@ -1079,8 +1246,9 @@ function RenderView({ projectId }: { projectId?: string }) {
   );
 }
 
-function MaskEditor({ character, image, onClose, onDone, onError }: {
-  character: Character; image: any; onClose: () => void; onDone: () => void; onError: (s: string) => void;
+function MaskEditor({ character, image, onClose, onDone, onError, onApply, title }: {
+  character?: Character; image: any; onClose: () => void; onDone: () => void; onError: (s: string) => void;
+  onApply?: (mask: string, prompt: string) => Promise<void>; title?: string;
 }) {
   const viewRef = useRef<HTMLCanvasElement | null>(null);
   const maskRef = useRef<HTMLCanvasElement | null>(null);
@@ -1135,9 +1303,13 @@ function MaskEditor({ character, image, onClose, onDone, onError }: {
     setBusy(true);
     try {
       const mask = maskRef.current!.toDataURL("image/png");
-      await api.editCharacter(character.id, {
-        image_asset_id: image.asset_id, mask, prompt, denoise: 0.9,
-      });
+      if (onApply) {
+        await onApply(mask, prompt);
+      } else {
+        await api.editCharacter(character!.id, {
+          image_asset_id: image.asset_id, mask, prompt, denoise: 0.9,
+        });
+      }
       onDone();
     } catch (e: any) { onError("ویرایش ناموفق: " + String(e.message || e)); }
     finally { setBusy(false); }
@@ -1147,7 +1319,7 @@ function MaskEditor({ character, image, onClose, onDone, onError }: {
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
         <div className="char-head">
-          <div><h3>ویرایش ناحیه‌ای</h3><p className="muted">روی ناحیه‌ای که می‌خواهی عوض شود بکش، بعد توضیح بده.</p></div>
+          <div><h3>{title || "ویرایش ناحیه‌ای"}</h3><p className="muted">روی ناحیه‌ای که می‌خواهی عوض شود بکش، بعد توضیح بده.</p></div>
           <button className="link" onClick={onClose}>بستن</button>
         </div>
         <div className="mask-stage">

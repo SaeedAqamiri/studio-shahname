@@ -13,6 +13,7 @@ from ..db import get_db
 from ..models import Asset, Render, Scene, Shot
 from ..providers import get_video_api
 from ..services.assets import asset_url, save_asset
+from ..services.shots import auto_chain_next, ensure_first_frame
 
 router = APIRouter(tags=["renders"])
 
@@ -51,7 +52,13 @@ async def start_render(shot_id: str, body: RenderIn, db: Session = Depends(get_d
     seed = body.seed if body.seed is not None else (shot.seed if shot.seed is not None else random.randint(1, 2**31 - 1))
     seconds = body.seconds or shot.seconds
     audio = shot.generate_audio if body.audio is None else body.audio
-    first_frame_id = body.first_frame_asset_id or (shot.first_frame_id if shot.mode == "i2v" else None)
+    if body.first_frame_asset_id:
+        shot.first_frame_id = body.first_frame_asset_id
+        shot.mode = "i2v"
+    try:
+        first_frame_id = await ensure_first_frame(db, shot)
+    except ValueError as exc:
+        raise HTTPException(422, str(exc))
     first_frame = None
     if first_frame_id:
         a = db.get(Asset, first_frame_id)
@@ -115,6 +122,10 @@ async def get_render(render_id: str, db: Session = Depends(get_db)) -> dict:
             shot = db.get(Shot, r.shot_id)
             if shot:
                 shot.status = "done"
+                try:
+                    await auto_chain_next(db, shot, r)
+                except Exception:
+                    pass
         if st == "failed":
             r.error = j.get("error") or "failed"
             shot = db.get(Shot, r.shot_id)

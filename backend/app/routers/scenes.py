@@ -17,9 +17,18 @@ from ..db import get_db
 from .. import config
 from ..models import Asset, CastMember, Character, Project, Render, Scene, Shot, WardrobeVariant
 from ..providers import get_image_provider, get_llm, get_tts
+from ..services import pacing
 from ..services.audio import concat_audio
 from ..services.assets import asset_url, save_asset
 from ..services.prompting import scene_prompt
+from ..services.shots import (
+    MANUAL_FRAME_KIND,
+    chain_from_previous,
+    is_manual_first_frame,
+    last_succeeded_render,
+    ordered_shots,
+    renumber,
+)
 from ..services.video import extract_frame
 
 router = APIRouter(tags=["scenes"])
@@ -56,6 +65,7 @@ class LookEditIn(BaseModel):
 
 
 class ShotIn(BaseModel):
+    index: int | None = Field(default=None, ge=1)
     prompt: str = ""
     mode: str = "auto"  # auto | t2v | i2v
     width: int = Field(default=1280, ge=384, le=1536)
@@ -65,6 +75,24 @@ class ShotIn(BaseModel):
     seed: int | None = None
     audio: bool = True
     first_frame_asset_id: str | None = None
+
+
+class ProposeShotsIn(BaseModel):
+    count: int | None = Field(default=None, ge=1, le=8)
+
+
+class ShotsApplyIn(BaseModel):
+    shots: list[dict] = Field(default_factory=list)
+    replace: bool = False
+
+
+class ShotFirstFrameInpaintIn(BaseModel):
+    mask: str  # PNG data URL
+    prompt: str = Field(min_length=1)
+    negative: str = ""
+    steps: int = Field(default=20, ge=1, le=60)
+    seed: int | None = None
+    denoise: float = Field(default=0.9, ge=0.3, le=1.0)
 
 
 def cast_public(db: Session, c: CastMember) -> dict:
@@ -79,13 +107,34 @@ def cast_public(db: Session, c: CastMember) -> dict:
 
 
 def shot_public(db: Session, s: Shot) -> dict:
+    render = (
+        db.query(Render)
+        .filter(Render.shot_id == s.id)
+        .order_by(Render.created_at.desc())
+        .first()
+    )
     return {
         "id": s.id, "scene_id": s.scene_id, "index": s.index, "prompt": s.prompt,
         "negative": s.negative, "mode": s.mode, "width": s.width, "height": s.height,
         "fps": s.fps, "seconds": s.seconds, "seed": s.seed, "generate_audio": s.generate_audio,
         "first_frame_id": s.first_frame_id, "first_frame_url": asset_url(s.first_frame_id),
+        "first_frame_manual": is_manual_first_frame(db, s),
         "last_frame_id": s.last_frame_id, "status": s.status,
+        "last_render": {
+            "id": render.id, "status": render.status, "error": render.error,
+            "video_url": asset_url(render.video_asset_id),
+        } if render else None,
     }
+
+
+def _shot_defaults(db: Session, scene: Scene, shot: Shot | None = None) -> tuple[str, float, str]:
+    ov = scene.style_overrides or {}
+    prompt = (shot.prompt if shot else "") or ov.get("video_prompt") or ov.get("visual_prompt") \
+        or scene.summary or scene.heading
+    profile = pacing.get_profile(ov.get("pacing_profile") or pacing.DEFAULT_PROFILE)
+    seconds = (shot.seconds if shot else 0) or ov.get("duration_sec") or sum(profile["shot_duration"]) / 2
+    negative = ov.get("video_negative") or ov.get("negative") or ""
+    return prompt, float(seconds), negative
 
 
 def scene_detail(db: Session, scene: Scene) -> dict:
@@ -486,18 +535,19 @@ def upsert_shot(scene_id: str, body: ShotIn, db: Session = Depends(get_db)) -> d
     scene = db.get(Scene, scene_id)
     if not scene:
         raise HTTPException(404, "scene not found")
-    ov = scene.style_overrides or {}
-    prompt = ov.get("video_prompt") or body.prompt or ov.get("visual_prompt") or scene.summary or scene.heading
-    mode = body.mode
-    if mode == "auto":
-        mode = "i2v" if scene.look_frame_id else "t2v"
-    shot = db.query(Shot).filter(Shot.scene_id == scene_id).order_by(Shot.index).first()
+    prompt, seconds, negative = _shot_defaults(db, scene)
+    index = body.index
+    if index is None:
+        existing = ordered_shots(db, scene_id)
+        index = existing[0].index if existing else 1
+    shot = db.query(Shot).filter(Shot.scene_id == scene_id, Shot.index == index).first()
     if not shot:
-        shot = Shot(scene_id=scene_id, index=1)
+        shot = Shot(scene_id=scene_id, index=index, seconds=seconds)
         db.add(shot)
-    shot.prompt = prompt
-    shot.negative = ov.get("video_negative") or ov.get("negative", "")
-    shot.mode = mode
+        db.flush()
+    shot.prompt = (body.prompt or "").strip() or shot.prompt or prompt
+    shot.negative = negative
+    shot.mode = body.mode
     shot.width, shot.height = body.width, body.height
     shot.seconds, shot.fps = body.seconds, body.fps
     shot.seed = body.seed
@@ -505,13 +555,156 @@ def upsert_shot(scene_id: str, body: ShotIn, db: Session = Depends(get_db)) -> d
     if body.first_frame_asset_id:
         shot.first_frame_id = body.first_frame_asset_id
         shot.mode = "i2v"
-    else:
-        shot.first_frame_id = scene.look_frame_id if mode == "i2v" else None
+    elif shot.index == 1 and not shot.first_frame_id and scene.look_frame_id:
+        shot.first_frame_id = scene.look_frame_id
+    if shot.mode == "auto":
+        shot.mode = "i2v" if shot.first_frame_id else "t2v"
     shot.status = "ready"
     cast = db.query(CastMember).filter(CastMember.scene_id == scene_id).all()
     shot.cast_snapshot = [{"character_id": c.character_id, "variant_id": c.variant_id} for c in cast]
     db.commit()
     return shot_public(db, shot)
+
+
+@router.post("/api/scenes/{scene_id}/shots/apply")
+def apply_shots(scene_id: str, body: ShotsApplyIn, db: Session = Depends(get_db)) -> dict:
+    """Save an AI-proposed / manually edited shot list for a scene."""
+    scene = db.get(Scene, scene_id)
+    if not scene:
+        raise HTTPException(404, "scene not found")
+    if body.replace:
+        for shot in ordered_shots(db, scene_id):
+            db.delete(shot)
+        db.flush()
+    existing = {s.index: s for s in ordered_shots(db, scene_id)}
+    prompt, seconds, negative = _shot_defaults(db, scene)
+    for i, item in enumerate(body.shots, 1):
+        try:
+            index = max(1, int(item.get("index") or i))
+        except Exception:
+            index = i
+        shot = existing.get(index)
+        if not shot:
+            shot = Shot(scene_id=scene_id, index=index, seconds=seconds)
+            db.add(shot)
+            db.flush()
+        shot.prompt = (item.get("prompt") or "").strip() or shot.prompt or prompt
+        try:
+            shot.seconds = float(item.get("seconds") or shot.seconds or seconds)
+        except Exception:
+            shot.seconds = seconds
+        shot.negative = (item.get("negative") or "").strip() or negative
+        if shot.index == 1 and not shot.first_frame_id and scene.look_frame_id:
+            shot.first_frame_id = scene.look_frame_id
+        shot.mode = "i2v" if shot.first_frame_id or shot.index > 1 else "t2v"
+        if shot.status == "draft":
+            shot.status = "ready"
+    renumber(db, scene_id)
+    db.commit()
+    return scene_detail(db, scene)
+
+
+SYSTEM_PROPOSE_SHOTS = (
+    "You are a film editor and shot designer for the LTX-2.5 video model. "
+    "Break ONE screenplay scene into a short, filmable shot list.\n"
+    "Rules:\n"
+    "- Shot 1 establishes the scene from the scene look frame.\n"
+    "- Every following shot must continue naturally from the LAST FRAME of the previous shot "
+    "(same characters, wardrobe, location, light and props; no jump cuts inside a shot).\n"
+    "- Each prompt is English, motion-first, 40-90 words: start with the main action, then chronological "
+    "gestures, secondary motion (cloth, hair, dust, wind, water), ONE clear camera move, and the final beat. "
+    "No dialogue, no on-screen text, no cuts, no scene changes.\n"
+    "- Vary shot size: wide / medium / close / insert / over_shoulder / pov.\n"
+    "- seconds must fit the pacing profile's shot duration and sum close to the scene's planned duration.\n"
+    "Return ONLY JSON: {\"shots\": [{\"index\": 1, \"kind\": \"wide\", \"prompt\": \"...\", "
+    "\"seconds\": 10, \"camera\": \"slow push-in\"}]}"
+)
+
+
+@router.post("/api/scenes/{scene_id}/propose-shots")
+async def propose_shots(scene_id: str, body: ProposeShotsIn, db: Session = Depends(get_db)) -> dict:
+    """AI proposal for a scene's shot list; the user can edit it before saving."""
+    scene = db.get(Scene, scene_id)
+    if not scene:
+        raise HTTPException(404, "scene not found")
+    ov = scene.style_overrides or {}
+    profile = pacing.get_profile(ov.get("pacing_profile") or pacing.DEFAULT_PROFILE)
+    scene_seconds = float(ov.get("duration_sec") or sum(profile["scene_duration"]) / 2)
+    lo, hi = profile["shots_per_scene"]
+    avg_shot = sum(profile["shot_duration"]) / 2
+    count = body.count or max(lo, min(hi, int(round(scene_seconds / max(1.0, avg_shot)))))
+    count = max(1, min(8, count))
+
+    cast_ids = {c.character_id for c in db.query(CastMember).filter(CastMember.scene_id == scene_id).all()}
+    chars = db.query(Character).filter(Character.project_id == scene.script.project_id).all() if scene.script else []
+    char_lines = "\n".join(
+        f"- {c.name} => {c.name_en or c.name}: {(c.description or '').strip()[:160]}"
+        for c in chars if not cast_ids or c.id in cast_ids
+    ) or "- none"
+    dialogue = "\n".join(f"{d.get('character', '')}: {d.get('line', '')}" for d in (scene.dialogue or []))
+    visual = ov.get("video_prompt") or ov.get("keyframe_prompt") or ov.get("visual_prompt") or ""
+    user = (
+        f"Scene {scene.index}: {scene.heading}\n"
+        f"Location: {scene.location} | Time: {scene.time_of_day}\n"
+        f"Summary: {scene.summary}\n"
+        f"Action: {scene.action_text}\n"
+        f"Dialogue:\n{dialogue or '- none'}\n"
+        f"Existing visual prompt: {visual or '- none'}\n"
+        f"Characters:\n{char_lines}\n\n"
+        f"Pacing profile: {profile['label']} ({profile['id']}); scene planned length ~{scene_seconds:.0f}s; "
+        f"shot length {profile['shot_duration'][0]}-{profile['shot_duration'][1]}s; "
+        f"propose exactly {count} shots.\n"
+        "Return the JSON shot list now."
+    )
+    llm = get_llm(settings_store.section(db, "llm"))
+    raw = await llm.chat(
+        [{"role": "system", "content": SYSTEM_PROPOSE_SHOTS}, {"role": "user", "content": user}],
+        temperature=0.6, json_mode=True, max_tokens=4000,
+    )
+    try:
+        data = _parse_llm_json(raw)
+    except Exception:
+        raise HTTPException(502, "LLM returned invalid JSON: " + raw[:400])
+    items = data.get("shots") if isinstance(data, dict) else data
+    if not isinstance(items, list):
+        raise HTTPException(502, "LLM response has no shot list")
+    smin, smax = profile["shot_duration"]
+    out = []
+    for i, item in enumerate(items[:8], 1):
+        if not isinstance(item, dict):
+            continue
+        prompt = str(item.get("prompt") or "").strip()
+        if not prompt:
+            continue
+        try:
+            seconds = int(round(float(item.get("seconds") or avg_shot)))
+        except Exception:
+            seconds = int(round(avg_shot))
+        seconds = max(smin, min(smax, seconds))
+        out.append({
+            "index": len(out) + 1,
+            "kind": str(item.get("kind") or "medium"),
+            "prompt": prompt,
+            "seconds": seconds,
+            "camera": str(item.get("camera") or ""),
+        })
+    if not out:
+        raise HTTPException(502, "LLM returned no usable shots")
+    return {"data": out, "profile": profile["id"], "scene_seconds": scene_seconds, "count": len(out)}
+
+
+@router.delete("/api/shots/{shot_id}")
+def delete_shot(shot_id: str, db: Session = Depends(get_db)) -> dict:
+    shot = db.get(Shot, shot_id)
+    if not shot:
+        raise HTTPException(404, "shot not found")
+    scene_id = shot.scene_id
+    db.delete(shot)
+    db.flush()
+    renumber(db, scene_id)
+    db.commit()
+    scene = db.get(Scene, scene_id)
+    return scene_detail(db, scene) if scene else {"ok": True}
 
 
 @router.post("/api/shots/{shot_id}/chain")
@@ -520,31 +713,48 @@ async def chain_shot_from_previous(shot_id: str, db: Session = Depends(get_db)) 
     shot = db.get(Shot, shot_id)
     if not shot:
         raise HTTPException(404, "shot not found")
-    prev = (db.query(Shot)
-            .filter(Shot.scene_id == shot.scene_id, Shot.index < shot.index)
-            .order_by(Shot.index.desc()).first())
-    if not prev:
-        raise HTTPException(400, "no previous shot in this scene")
-    render = (db.query(Render)
-              .filter(Render.shot_id == prev.id, Render.status == "succeeded",
-                      Render.video_asset_id.isnot(None))
-              .order_by(Render.created_at.desc()).first())
-    if not render:
-        raise HTTPException(409, "previous shot has no finished render")
-    asset = db.get(Asset, render.video_asset_id)
-    if not asset or not Path(asset.path).is_file():
-        raise HTTPException(409, "previous video asset missing")
-    out = config.ASSETS / f"chain_{prev.id}_{render.id}.png"
-    await extract_frame(asset.path, str(out), last=True)
-    frame = save_asset(db, out.read_bytes(), "image", "png",
-                       meta={"kind": "chain_frame", "shot": shot.id, "from_shot": prev.id,
-                             "render": render.id})
-    shot.first_frame_id = frame.id
+    try:
+        frame = await chain_from_previous(db, shot)
+    except ValueError as exc:
+        raise HTTPException(409, str(exc))
+    db.commit()
+    return {"shot_id": shot.id, "first_frame_id": frame.id, "url": asset_url(frame.id)}
+
+
+@router.post("/api/shots/{shot_id}/first-frame/inpaint")
+async def inpaint_shot_first_frame(shot_id: str, body: ShotFirstFrameInpaintIn,
+                                   db: Session = Depends(get_db)) -> dict:
+    """Mask-based edit of a shot's first frame (chained frame or look frame)."""
+    shot = db.get(Shot, shot_id)
+    if not shot:
+        raise HTTPException(404, "shot not found")
+    if not shot.first_frame_id:
+        raise HTTPException(422, "shot has no first frame yet")
+    base = db.get(Asset, shot.first_frame_id)
+    if not base or not Path(base.path).is_file():
+        raise HTTPException(422, "first frame asset missing")
+    m = re.match(r"^data:image/[a-zA-Z+]+;base64,(.+)$", body.mask, re.S)
+    if not m:
+        raise HTTPException(422, "mask must be a PNG data URL")
+    try:
+        mask = base64.b64decode(m.group(1))
+    except Exception:
+        raise HTTPException(422, "invalid mask")
+    scene = db.get(Scene, shot.scene_id)
+    ov = (scene.style_overrides if scene else {}) or {}
+    negative = body.negative or ov.get("negative") or ""
+    provider = get_image_provider(settings_store.section(db, "image"))
+    seed = body.seed if body.seed is not None else random.randint(1, 2**31 - 1)
+    raw = await provider.edit(body.prompt, negative, Path(base.path).read_bytes(), mask,
+                              seed, body.steps, body.denoise)
+    asset = save_asset(db, raw, "image", "png",
+                       meta={"kind": MANUAL_FRAME_KIND, "shot": shot.id, "parent": base.id,
+                             "prompt": body.prompt, "seed": seed})
+    shot.first_frame_id = asset.id
     shot.mode = "i2v"
     shot.status = "ready"
     db.commit()
-    return {"shot_id": shot.id, "first_frame_id": frame.id, "url": asset_url(frame.id),
-            "from_shot_id": prev.id, "from_shot_index": prev.index, "from_render_id": render.id}
+    return {"shot_id": shot.id, "first_frame_id": asset.id, "url": asset_url(asset.id), "seed": seed}
 
 
 @router.post("/api/scenes/{scene_id}/prev-frame")

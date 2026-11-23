@@ -64,6 +64,15 @@ export const api = {
     req<any>(`/api/scenes/${id}/look-frame`, { method: "POST", headers: J, body: JSON.stringify(body) }),
   upsertShot: (sceneId: string, body: any) =>
     req<any>(`/api/scenes/${sceneId}/shots`, { method: "POST", headers: J, body: JSON.stringify(body) }),
+  proposeShots: (sceneId: string, body: any = {}) =>
+    req<any>(`/api/scenes/${sceneId}/propose-shots`, { method: "POST", headers: J, body: JSON.stringify(body) }),
+  applyShots: (sceneId: string, body: any) =>
+    req<any>(`/api/scenes/${sceneId}/shots/apply`, { method: "POST", headers: J, body: JSON.stringify(body) }),
+  deleteShot: (shotId: string) => req<any>(`/api/shots/${shotId}`, { method: "DELETE" }),
+  chainShot: (shotId: string) =>
+    req<any>(`/api/shots/${shotId}/chain`, { method: "POST", headers: J, body: "{}" }),
+  inpaintShot: (shotId: string, body: any) =>
+    req<any>(`/api/shots/${shotId}/first-frame/inpaint`, { method: "POST", headers: J, body: JSON.stringify(body) }),
   startRender: (shotId: string, body: any) =>
     req<any>(`/api/shots/${shotId}/render`, { method: "POST", headers: J, body: JSON.stringify(body) }),
   render: (id: string) => req<any>(`/api/renders/${id}`),
